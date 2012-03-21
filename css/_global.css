@@ -166,7 +166,7 @@ Thumbnail Collections
   font-size: 13px;
   line-height: 17px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   margin: 10px;
   width: 160px;
   height: 135px;
@@ -183,6 +183,14 @@ Thumbnail Collections
   height: 25px;
   margin-top: -14px;
   font-weight: bold;
+}
+#thumbnails .thumbnail.student {
+  margin-bottom: 50px;
+}
+#thumbnails .thumbnail.student .caption {
+  width: 100%;
+  position: absolute;
+  bottom: -30px;
 }
 .tooltip {
   padding: 15px;

@@ -13,8 +13,12 @@
 					$random_last_name = $letters[array_rand ($letters)];
 
 					echo '
-						<div class="thumbnail" data-first-name="'.$random_first_name.'" data-last-name="'.$random_last_name.'" title="'.$random_first_name.' '.$random_last_name.'">
+						<div class="thumbnail student" data-first-name="'.$random_first_name.'" data-last-name="'.$random_last_name.'" title="'.$random_first_name.' '.$random_last_name.'">
 							<a href="#">'.$random_first_name.' '.$random_last_name.'</a>
+
+							<div class="caption">
+								'.$random_first_name.' '.$random_last_name.'
+							</div>
 						</div>
 					';
 				}
