@@ -68,8 +68,24 @@
 			}
 		?>
 
-		<footer>
+		<footer id="main-footer">
+			<ul id="colour-picker">
+				<li id="set-bg-white" class="active"><a href="#">White</a></li>
+				<li id="set-bg-yellow"><a href="#">Yellow</a></li>
+				<li id="set-bg-seafoam"><a href="#">Seafoam</a></li>
+				<li id="set-bg-red"><a href="#">Red</a></li>
+				<li id="set-bg-navy"><a href="#">Navy</a></li>
+			</ul>
 
+			<div id="social-media">
+				<ul id="twitter_update_list"><li>Twitter feed loading...</li></ul>
+				<ul id="social-links">
+					<li id="social-media-facebook"><a href="http://www.facebook.com/events/269791449767810/">Pique2012 on Facebook</a></li>
+					<li id="social-media-twitter"><a href="https://twitter.com/#!/ysdn12">Pique2012 on Twitter</a></li>
+				</ul>
+			</div>
+			<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+			<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/ysdn12.json?callback=twitterCallback2&count=1"></script>
 		</footer>
 	</body>
 </html>

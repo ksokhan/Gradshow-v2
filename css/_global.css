@@ -133,6 +133,10 @@ Layout
 #page-wrapper.three-columns .sidebar h1:first-child {
   margin-top: 0;
 }
+#page-wrapper.single-column #content {
+  width: 700px;
+  margin: 0 auto;
+}
 /*--------------------------------------------------------------------------
 Navigation
 --------------------------------------------------------------------------*/
@@ -153,6 +157,90 @@ Navigation
 }
 #main-navigation ul li.current_page a {
   text-decoration: none;
+}
+/*--------------------------------------------------------------------------
+Footer
+--------------------------------------------------------------------------*/
+#main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: white;
+  z-index: 10000000000;
+}
+#main-footer #colour-picker {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  margin-top: -10px;
+  font-size: 0;
+  line-height: 0;
+}
+#main-footer #colour-picker li {
+  display: inline;
+  margin-right: 5px;
+}
+#main-footer #colour-picker li.active a {
+  position: relative;
+  bottom: -2px;
+  border: 2px solid black;
+}
+#main-footer #colour-picker li#set-bg-white a {
+  background: white;
+}
+#main-footer #colour-picker li#set-bg-yellow a {
+  background: #ffe850;
+}
+#main-footer #colour-picker li#set-bg-seafoam a {
+  background: #cbe8db;
+}
+#main-footer #colour-picker li#set-bg-red a {
+  background: #f05123;
+}
+#main-footer #colour-picker li#set-bg-navy a {
+  background: #3c3a89;
+}
+#main-footer #colour-picker li a {
+  display: inline-block;
+  width: 15px;
+  height: 20px;
+  text-indent: -5000px;
+}
+#main-footer #social-media {
+  text-align: center;
+  line-height: 50px;
+}
+#main-footer #social-media * {
+  display: inline;
+}
+#main-footer #social-media #twitter_update_list {
+  padding-left: 30px;
+  background: url(../images/social.twitterbird.png) no-repeat left center;
+}
+#main-footer #social-media #twitter_update_list li > a:last-child {
+  color: #f05123;
+}
+#main-footer #social-media #social-links {
+  margin-left: 30px;
+}
+#main-footer #social-media #social-links li {
+  margin-right: 5px;
+}
+#main-footer #social-media #social-links li a {
+  display: inline-block;
+  text-indent: -5000px;
+}
+#main-footer #social-media #social-links li#social-media-facebook a {
+  width: 8px;
+  height: 16px;
+  background: url(../images/social.facebook.png);
+}
+#main-footer #social-media #social-links li#social-media-twitter a {
+  width: 9px;
+  height: 13px;
+  background: url(../images/social.twitter.png);
 }
 /*--------------------------------------------------------------------------
 Thumbnail Collections
