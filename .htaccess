@@ -1,3 +1,8 @@
 RewriteEngine On
 
-RewriteRule ^([a-z0-9_-]+)/?$ index.php?page=$1 [NC,QSA,L]
+#RewriteRule ^([a-z0-9_-]+)/?$ index.php?page=$1 [NC,QSA,L]
+
+# /a/b/c -> index.php?page_file=a.b.c
+RewriteRule ^([a-z0-9_-]+(/[a-z0-9_-]+)*)/?$ pf=$1+ [NC,QSA]
+RewriteRule ^pf=([^/]+)/([^+]+)\+ pf=$1.$2+ [N]
+RewriteRule ^pf=([^+]+)\+$ index.php?page_file=$1 [QSA,NC,L]

@@ -5,24 +5,24 @@
 
 		<title>PIQUE</title>
 
-		<link rel="stylesheet" type="text/css" href="css/html5reset.css" media="all">
-		<link rel="stylesheet" type="text/css" href="css/_global.css" media="all">
+		<link rel="stylesheet" type="text/css" href="/css/html5reset.css" media="all">
+		<link rel="stylesheet" type="text/css" href="/css/_global.css" media="all">
 		<?php
-			if (file_exists ('css/'.$_GET['page'].'.css')) {
-				echo '<link rel="stylesheet" type="text/css" href="css/'.$_GET['page'].'.css" media="all">';
+			if (file_exists ('css/'.$_GET['page_file'].'.css')) {
+				echo '<link rel="stylesheet" type="text/css" href="/css/'.$_GET['page_file'].'.css" media="all">';
 			}
 		?>
 
-		<script type="text/javascript" src="libraries/mootools/moo.core.1.4.5.js"></script>
-		<script type="text/javascript" src="libraries/mootools/moo.more.1.4.0.1.js"></script>
+		<script type="text/javascript" src="/libraries/mootools/moo.core.1.4.5.js"></script>
+		<script type="text/javascript" src="/libraries/mootools/moo.more.1.4.0.1.js"></script>
 
 		<script type="text/javascript" src="http://fast.fonts.com/jsapi/23779f16-a0da-4258-b1bd-964665cab549.js"></script>
 
-		<script type="text/javascript" src="js/_global.js"></script>
+		<script type="text/javascript" src="/js/_global.js"></script>
 
 		<?php
-			if (file_exists ('js/'.$_GET['page'].'.js')) {
-				echo '<script type="text/javascript" src="js/'.$_GET['page'].'.js"></script>';
+			if (file_exists ('js/'.$_GET['page_file'].'.js')) {
+				echo '<script type="text/javascript" src="/js/'.$_GET['page_file'].'.js"></script>';
 			}
 		?>
 	</head>
@@ -52,7 +52,7 @@
 		<nav id="main-navigation">
 			<ul>
 				<?php
-					$current_page[$_GET['page']] = ' class="current_page"';
+					$current_page[$_GET['page_file']] = ' class="current_page"';
 				?>
 				<li<?=@$current_page['about']?>><a href="/about">About</a></li>
 				<li<?=@$current_page['students']?>><a href="/students">Students</a></li>
@@ -62,7 +62,7 @@
 		</nav>
 
 		<?php
-			$page_file = isset ($_GET['page']) ? 'pages/'.$_GET['page'].'.php' : 'pages/home.php';
+			$page_file = isset ($_GET['page_file']) ? 'pages/'.$_GET['page_file'].'.php' : 'pages/home.php';
 
 			if (file_exists ($page_file)) {
 				require $page_file;

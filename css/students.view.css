@@ -1,0 +1,7 @@
+.poster {
+  position: absolute;
+  background: #ddd;
+}
+#content {
+  min-height: 400px;
+}
