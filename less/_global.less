@@ -16,7 +16,7 @@ The Typeface
 }
 
 /*--------------------------------------------------------------------------
-Colours
+Colours (ALL COLOUR INFO GOES HERE, AND ONLY HERE)
 --------------------------------------------------------------------------*/
 @seafoam: #CBE8DB;
 @navy: #3C3A89;
@@ -32,6 +32,10 @@ body#navy {
 	}
 	.thumbnail {
 		border-color: @navy;
+	}
+	.category_card {
+		background: @red;
+		color: @seafoam;
 	}
 	.tooltip {
 		background: @navy;
@@ -162,10 +166,26 @@ Thumbnail Collections
 
 	.thumbnail {
 		display: inline-block;
+		vertical-align: middle;
 		margin: 10px;
 		width: 160px;
 		height: 135px;
 		border: 1px solid;
+		position: relative;
+
+		&.category_card {
+			span {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				text-align: center;
+				width: 100%;
+				padding: 0 15px;
+				height: 25px;
+				margin-top: -14px;
+				font-weight: bold;
+			}
+		}
 	}
 }
 .tooltip {

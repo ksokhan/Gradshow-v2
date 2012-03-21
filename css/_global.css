@@ -31,7 +31,7 @@
 The Typeface
 --------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------
-Colours
+Colours (ALL COLOUR INFO GOES HERE, AND ONLY HERE)
 --------------------------------------------------------------------------*/
 body#navy {
   color: #3c3a89;
@@ -41,6 +41,10 @@ body#navy a {
 }
 body#navy .thumbnail {
   border-color: #3c3a89;
+}
+body#navy .category_card {
+  background: #f05123;
+  color: #cbe8db;
 }
 body#navy .tooltip {
   background: #3c3a89;
@@ -158,10 +162,23 @@ Thumbnail Collections
 }
 #thumbnails .thumbnail {
   display: inline-block;
+  vertical-align: middle;
   margin: 10px;
   width: 160px;
   height: 135px;
   border: 1px solid;
+  position: relative;
+}
+#thumbnails .thumbnail.category_card span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  padding: 0 15px;
+  height: 25px;
+  margin-top: -14px;
+  font-weight: bold;
 }
 .tooltip {
   padding: 15px;

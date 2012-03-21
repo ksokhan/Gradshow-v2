@@ -67,10 +67,10 @@
 							'Typography'
 						);
 						$mediums = array (
-							'interactive',
-							'package',
-							'print',
-							'video'
+							'Interactive',
+							'Package',
+							'Print',
+							'Video'
 						);
 
 						for ($i = 0; $i < 105; $i++) {
@@ -111,9 +111,9 @@
 			<section id="right" class="sidebar">
 				<h1>sort by</h1>
 				<ul>
-					<li><a href="#" id="sort_randomly">random</a></li>
-					<li><a href="#" id="sort_by_medium">medium</a></li>
-					<li><a href="#" id="sort_by_course">course</a></li>
+					<li><a href="#" id="sort_randomly">Random</a></li>
+					<li><a href="#" id="sort_by_medium">Medium</a></li>
+					<li><a href="#" id="sort_by_course">Course</a></li>
 				</ul>
 
 				<h1>filter by medium</h1>

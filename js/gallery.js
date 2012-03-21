@@ -73,7 +73,7 @@ window.addEvent ('domready', function () {
 		// For each course in the list...
 		Object.each (folders, function (thumbnails, folder_name) {
 			// Create a "name card" to denote where each new section begins
-			Elements.from ('<div class="thumbnail category_card">' + folder_name + '</div>').inject(container);
+			Elements.from ('<div class="thumbnail category_card"><span>' + folder_name + '</span></div>').inject(container);
 
 			// Spit out its thumbnails
 			thumbnails.each (function (thumbnail, index) {
@@ -121,10 +121,10 @@ window.addEvent ('domready', function () {
 	--------------------------------------------------------------------------*/
 	// Make little folders...
 	var mediums = {
-		'interactive': [],
-		'package': [],
-		'print': [],
-		'video': []
+		'Interactive': [],
+		'Package': [],
+		'Print': [],
+		'Video': []
 	};
 	// Stuff the folders
 	Object.each (mediums, function (arr, medium_name) {

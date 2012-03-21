@@ -21,6 +21,8 @@ window.addEvent ('domready', function () {
 	Gallery Tooltips
 	--------------------------------------------------------------------------*/
 	var tips = new Tips ('.thumbnail', {
-		'className': 'tooltip'
+		'className': 'tooltip',
+		'showDelay': 0,
+		'hideDelay': 0
 	});
 });
