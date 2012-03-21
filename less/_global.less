@@ -23,12 +23,15 @@ Colours (ALL COLOUR INFO GOES HERE, AND ONLY HERE)
 @red: #F05123;
 @yellow: #FFE850;
 
-// NAVY
-body#navy {
-	color: @navy;
+// WHITE
+body#white {
+	color: @red;
 
 	a {
 		color: @navy;
+	}
+	#logo a {
+		background: url(../images/wordmark.navy.png);
 	}
 	.thumbnail {
 		border-color: @navy;
@@ -40,6 +43,98 @@ body#navy {
 	.tooltip {
 		background: @navy;
 		color: @seafoam;
+	}
+}
+// YELLOW
+body#yellow {
+	background: @yellow;
+	color: @navy;
+
+	a {
+		color: @red;
+	}
+	#logo a {
+		background: url(../images/wordmark.navy.png);
+	}
+	.thumbnail {
+		border-color: @navy;
+	}
+	.category_card {
+		background: @red;
+		color: @seafoam;
+	}
+	.tooltip {
+		background: @navy;
+		color: @seafoam;
+	}
+}
+// SEAFOAM
+body#seafoam {
+	background: @seafoam;
+	color: @red;
+
+	a {
+		color: @navy;
+	}
+	#logo a {
+		background: url(../images/wordmark.red.png);
+	}
+	.thumbnail {
+		border-color: @red;
+	}
+	.category_card {
+		background: @red;
+		color: @seafoam;
+	}
+	.tooltip {
+		background: @navy;
+		color: @seafoam;
+	}
+}
+// RED
+body#red {
+	background: @red;
+	color: @seafoam;
+
+	a {
+		color: @yellow;
+	}
+	#logo a {
+		background: url(../images/wordmark.seafoam.png);
+	}
+	.thumbnail {
+		border-color: @seafoam;
+	}
+	.category_card {
+		background: @yellow;
+		color: @navy;
+	}
+	.tooltip {
+		background: @yellow;
+		color: @navy;
+	}
+}
+// NAVY
+body#navy {
+	background: @navy;
+	color: @yellow;
+
+	a {
+		color: @seafoam;
+	}
+	#logo a {
+		background: url(../images/wordmark.yellow.png);
+	}
+	.thumbnail {
+		border-color: @yellow;
+	}
+	.category_card {
+		background: @yellow;
+		color: @navy;
+	}
+	.tooltip {
+		background: @yellow;
+		color: @navy;
 	}
 }
 
@@ -82,7 +177,6 @@ header {
 	}
 
 	.timer {
-		color: @red;
 		font-weight: bold;
 		position: absolute;
 		bottom: 0;
@@ -153,7 +247,6 @@ Navigation
 			margin: 0 10px;
 
 			a {
-				color: @navy;
 				font-weight: bold;
 				text-transform: uppercase;
 			}
@@ -169,6 +262,7 @@ Footer
 --------------------------------------------------------------------------*/
 #main-footer {
 	@footer-height: 50px;
+	color: @navy;
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -177,6 +271,9 @@ Footer
 	background: white;
 	z-index: 10000000000;
 
+	a {
+		color: @navy !important;
+	}
 	#colour-picker {
 		position: absolute;
 		left: 30px;
@@ -192,10 +289,13 @@ Footer
 			&.active a {
 				position: relative;
 				bottom: -2px;
-				border: 2px solid black;
+				border: 2px solid black !important;
 			}
 			&#set-bg-white a {
 				background: white;
+				position: relative;
+				bottom: -2px;
+				border: 2px solid #ddd;
 			}
 			&#set-bg-yellow a {
 				background: @yellow;
@@ -230,7 +330,7 @@ Footer
 			background: url(../images/social.twitterbird.png) no-repeat left center;
 
 			li > a:last-child {
-				color: @red;
+				color: @red !important;
 			}
 		}
 		#social-links {
@@ -242,6 +342,7 @@ Footer
 				a {
 					display: inline-block;
 					text-indent: -5000px;
+					vertical-align: middle;
 				}
 				&#social-media-facebook a {
 					width: 8px;

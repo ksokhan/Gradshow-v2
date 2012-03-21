@@ -33,22 +33,109 @@ The Typeface
 /*--------------------------------------------------------------------------
 Colours (ALL COLOUR INFO GOES HERE, AND ONLY HERE)
 --------------------------------------------------------------------------*/
-body#navy {
+body#white {
+  color: #f05123;
+}
+body#white a {
   color: #3c3a89;
 }
-body#navy a {
-  color: #3c3a89;
+body#white #logo a {
+  background: url(../images/wordmark.navy.png);
 }
-body#navy .thumbnail {
+body#white .thumbnail {
   border-color: #3c3a89;
 }
-body#navy .category_card {
+body#white .category_card {
   background: #f05123;
   color: #cbe8db;
 }
-body#navy .tooltip {
+body#white .tooltip {
   background: #3c3a89;
   color: #cbe8db;
+}
+body#yellow {
+  background: #ffe850;
+  color: #3c3a89;
+}
+body#yellow a {
+  color: #f05123;
+}
+body#yellow #logo a {
+  background: url(../images/wordmark.navy.png);
+}
+body#yellow .thumbnail {
+  border-color: #3c3a89;
+}
+body#yellow .category_card {
+  background: #f05123;
+  color: #cbe8db;
+}
+body#yellow .tooltip {
+  background: #3c3a89;
+  color: #cbe8db;
+}
+body#seafoam {
+  background: #cbe8db;
+  color: #f05123;
+}
+body#seafoam a {
+  color: #3c3a89;
+}
+body#seafoam #logo a {
+  background: url(../images/wordmark.red.png);
+}
+body#seafoam .thumbnail {
+  border-color: #f05123;
+}
+body#seafoam .category_card {
+  background: #f05123;
+  color: #cbe8db;
+}
+body#seafoam .tooltip {
+  background: #3c3a89;
+  color: #cbe8db;
+}
+body#red {
+  background: #f05123;
+  color: #cbe8db;
+}
+body#red a {
+  color: #ffe850;
+}
+body#red #logo a {
+  background: url(../images/wordmark.seafoam.png);
+}
+body#red .thumbnail {
+  border-color: #cbe8db;
+}
+body#red .category_card {
+  background: #ffe850;
+  color: #3c3a89;
+}
+body#red .tooltip {
+  background: #ffe850;
+  color: #3c3a89;
+}
+body#navy {
+  background: #3c3a89;
+  color: #ffe850;
+}
+body#navy a {
+  color: #cbe8db;
+}
+body#navy #logo a {
+  background: url(../images/wordmark.yellow.png);
+}
+body#navy .thumbnail {
+  border-color: #ffe850;
+}
+body#navy .category_card {
+  background: #ffe850;
+  color: #3c3a89;
+}
+body#navy .tooltip {
+  background: #ffe850;
+  color: #3c3a89;
 }
 /*--------------------------------------------------------------------------
 Misc Tag Setup
@@ -90,7 +177,6 @@ header #logo a {
   background: url(../images/wordmark.blue.png);
 }
 header .timer {
-  color: #f05123;
   font-weight: bold;
   position: absolute;
   bottom: 0;
@@ -151,7 +237,6 @@ Navigation
   margin: 0 10px;
 }
 #main-navigation ul li a {
-  color: #3c3a89;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -162,6 +247,7 @@ Navigation
 Footer
 --------------------------------------------------------------------------*/
 #main-footer {
+  color: #3c3a89;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -169,6 +255,9 @@ Footer
   height: 50px;
   background: white;
   z-index: 10000000000;
+}
+#main-footer a {
+  color: #3c3a89 !important;
 }
 #main-footer #colour-picker {
   position: absolute;
@@ -185,10 +274,13 @@ Footer
 #main-footer #colour-picker li.active a {
   position: relative;
   bottom: -2px;
-  border: 2px solid black;
+  border: 2px solid black !important;
 }
 #main-footer #colour-picker li#set-bg-white a {
   background: white;
+  position: relative;
+  bottom: -2px;
+  border: 2px solid #ddd;
 }
 #main-footer #colour-picker li#set-bg-yellow a {
   background: #ffe850;
@@ -220,7 +312,7 @@ Footer
   background: url(../images/social.twitterbird.png) no-repeat left center;
 }
 #main-footer #social-media #twitter_update_list li > a:last-child {
-  color: #f05123;
+  color: #f05123 !important;
 }
 #main-footer #social-media #social-links {
   margin-left: 30px;
@@ -231,6 +323,7 @@ Footer
 #main-footer #social-media #social-links li a {
   display: inline-block;
   text-indent: -5000px;
+  vertical-align: middle;
 }
 #main-footer #social-media #social-links li#social-media-facebook a {
   width: 8px;

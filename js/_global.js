@@ -25,4 +25,16 @@ window.addEvent ('domready', function () {
 		'showDelay': 0,
 		'hideDelay': 0
 	});
+
+	/*--------------------------------------------------------------------------
+	Changing Colours
+	--------------------------------------------------------------------------*/
+	$$('#colour-picker li').addEvent ('click', function () {
+		this.getParent ('ul').getElement ('.active').removeClass ('active');
+		this.addClass ('active');
+		document.body.set ('id', this.get ('text').toLowerCase());
+		localStorage.setItem('pique-bg-colour', this.get('id'));
+	});
+	var stored_bg = localStorage.getItem ('pique-bg-colour') || 'set-bg-white';
+	$(stored_bg).fireEvent ('click');
 });

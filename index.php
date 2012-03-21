@@ -22,7 +22,7 @@
 		?>
 	</head>
 
-	<body id="navy">
+	<body id="white">
 		<header>
 			<h1 id="logo"><a href="#">York / Sheridan Design Pique Grad Show</a></h1>
 
