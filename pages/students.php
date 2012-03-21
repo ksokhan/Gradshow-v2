@@ -8,8 +8,6 @@
 					if ($i == 'z') break;
 				}
 
-				echo 'here: <pre>'.print_r($letters, true).'</pre>';
-
 				for ($i = 0; $i < 105; $i++) {
 					$random_first_name = $letters[array_rand ($letters)];
 					$random_last_name = $letters[array_rand ($letters)];
@@ -48,8 +46,8 @@
 		<h1>sort by</h1>
 		<ul>
 			<li><a href="#" id="sort_randomly">Random</a></li>
-			<li><a href="#" id="sort_by_medium">First Name</a></li>
-			<li><a href="#" id="sort_by_course">Last Name</a></li>
+			<li><a href="#" id="sort_by_first_name">First Name</a></li>
+			<li><a href="#" id="sort_by_last_name">Last Name</a></li>
 		</ul>
 
 		<h1>filter by</h1>

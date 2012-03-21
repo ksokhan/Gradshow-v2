@@ -187,3 +187,7 @@ Thumbnail Collections
 .tooltip {
   padding: 15px;
 }
+.active-menu-item {
+  font-weight: bold;
+  text-decoration: none;
+}

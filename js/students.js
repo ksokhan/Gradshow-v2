@@ -1,7 +1,8 @@
 window.addEvent ('domready', function () {
+	// This one lets there be more than one active menu item on the page
 	var setActiveMenuItem = function (element) {
-		$$('.active-menu-item').removeClass ('active-menu-item');
-		element.addClass ('active-menu-item');
+		element.getParent('ul').getElements('.active-menu-item').removeClass('active-menu-item');
+		element.addClass('active-menu-item');
 	};
 
 	/*--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ window.addEvent ('domready', function () {
 		if (e) e.preventDefault();
 		setActiveMenuItem (this);
 		sortRandomly ();
+
+		// If a letter is active, make it inactive because random always shows everyone
+		setActiveMenuItem($$('[data-show-only-letter]:first-child')[0]);
 	}).fireEvent('click');
 
 	/*--------------------------------------------------------------------------
@@ -34,11 +38,18 @@ window.addEvent ('domready', function () {
 	--------------------------------------------------------------------------*/
 	// Filter by...
 	var showOnlyWhere = function (attribute, value) {
-		// Sort first...
-		if (attribute == 'data-course')
-			sortBy(courses);
-		else
-			sortBy(mediums);
+		// Get the container for the thumbnails
+		var container = $('thumbnails');
+
+		// Sort first, if we need to!
+		if (container.getElement ('.category_card'))
+		{
+			if (attribute == 'data-first-name') {
+				sortBy(first_names_by_letter);
+			} else {
+				sortBy(last_names_by_letter);
+			}
+		}
 
 		// Show all?
 		if (value == "all") {
@@ -54,14 +65,11 @@ window.addEvent ('domready', function () {
 		// Now hide everything...
 		$$('.thumbnail').setStyle ('display', 'none');
 
-		// Get the container for the thumbnails
-		var container = $('thumbnails');
-
 		// Create a "name card" to denote where each new section begins
 		Elements.from ('<div class="thumbnail category_card"><span>' + value + '</span></div>').inject(container, 'top');
 
 		// How show the ones we want...
-		$$('.thumbnail[' + attribute + '="' + value + '"]').setStyle ('display', 'inline-block');
+		$$('.thumbnail[' + attribute + '^="' + value + '"]').setStyle ('display', 'inline-block');
 	};
 
 	/*--------------------------------------------------------------------------
@@ -91,63 +99,121 @@ window.addEvent ('domready', function () {
 	};
 
 	/*--------------------------------------------------------------------------
-	By Course
+	By First Name
 	--------------------------------------------------------------------------*/
 	// Make little folders...
-	var courses = {
-		'Book Design': [],
-		'Corporate ID': [],
-		'Communication Design': [],
-		'Design Workshop': [],
-		'Editorial Design': [],
-		'Independent Study': [],
-		'Information Design': [],
-		'Interactivity Design': [],
-		'Package Design': [],
-		'Time-Based Design': [],
-		'Typography': []
+	var first_names_by_letter = {
+		'a': [],
+		'b': [],
+		'c': [],
+		'd': [],
+		'e': [],
+		'f': [],
+		'g': [],
+		'h': [],
+		'i': [],
+		'j': [],
+		'k': [],
+		'l': [],
+		'm': [],
+		'n': [],
+		'o': [],
+		'p': [],
+		'q': [],
+		'r': [],
+		's': [],
+		't': [],
+		'u': [],
+		'v': [],
+		'w': [],
+		'x': [],
+		'y': [],
+		'z': []
 	};
 	// Stuff the folders
-	Object.each (courses, function (arr, course_name) {
-		courses[course_name] = $$('.thumbnail[data-course="' + course_name + '"]');
+	Object.each (first_names_by_letter, function (arr, letter) {
+		first_names_by_letter[letter] = $$('.thumbnail[data-first-name^="' + letter + '"]');
 	});
 	// Sort by...
-	$$('#sort_by_course').addEvent ('click', function (e) {
+	$$('#sort_by_first_name').addEvent ('click', function (e) {
 		if (e) e.preventDefault();
 		setActiveMenuItem (this);
-		sortBy(courses);
+		sortBy(first_names_by_letter);
+
+		// If a letter is active, click it
+		$$('.active-menu-item[data-show-only-letter]').fireEvent ('click');
 	});
-	// Filter by...
-	$$('[data-show-only-course]').addEvent ('click', function (e) {
+
+	// Filter by... Letter
+	$$('[data-show-only-letter]').addEvent ('click', function (e) {
 		if (e) e.preventDefault();
+
+		// We doing this by last name or first name??
+		var sort_axis = '';
+		if ($('sort_by_first_name').hasClass ('active-menu-item')) {
+			sort_axis = 'data-first-name';
+		}
+		else if ($('sort_by_last_name').hasClass ('active-menu-item')) {
+			sort_axis = 'data-last-name';
+		}
+
+		// We're sorting randomly or something.
+		else
+		{
+			// Sort by first name
+			$('sort_by_first_name').fireEvent('click');
+
+			// Set the sort axis
+			sort_axis = 'data-first-name';
+		}
+
 		setActiveMenuItem (this);
-		showOnlyWhere ('data-course', this.get ('data-show-only-course'));
+		showOnlyWhere (sort_axis, this.get ('data-show-only-letter'));
 	});
 
 	/*--------------------------------------------------------------------------
-	By Medium
+	By Last Name
 	--------------------------------------------------------------------------*/
 	// Make little folders...
-	var mediums = {
-		'Interactive': [],
-		'Package': [],
-		'Print': [],
-		'Video': []
+	var last_names_by_letter = {
+		'a': [],
+		'b': [],
+		'c': [],
+		'd': [],
+		'e': [],
+		'f': [],
+		'g': [],
+		'h': [],
+		'i': [],
+		'j': [],
+		'k': [],
+		'l': [],
+		'm': [],
+		'n': [],
+		'o': [],
+		'p': [],
+		'q': [],
+		'r': [],
+		's': [],
+		't': [],
+		'u': [],
+		'v': [],
+		'w': [],
+		'x': [],
+		'y': [],
+		'z': []
 	};
 	// Stuff the folders
-	Object.each (mediums, function (arr, medium_name) {
-		mediums[medium_name] = $$('.thumbnail[data-medium="' + medium_name + '"]');
+	Object.each (last_names_by_letter, function (arr, letter) {
+		last_names_by_letter[letter] = $$('.thumbnail[data-last-name^="' + letter + '"]');
 	});
 	// Sort by...
-	$$('#sort_by_medium').addEvent ('click', function (e) {
+	$$('#sort_by_last_name').addEvent ('click', function (e) {
 		if (e) e.preventDefault();
 		setActiveMenuItem (this);
-		sortBy(mediums);
-	});
-	// Filter by...
-	$$('[data-show-only-medium]').addEvent ('click', function (e) {
-		if (e) e.preventDefault();
-		setActiveMenuItem (this);
-		showOnlyWhere ('data-medium', this.get ('data-show-only-medium'));
+		sortBy(last_names_by_letter);
+
+		// If a letter is active, click it
+		$$('.active-menu-item[data-show-only-letter]').fireEvent ('click');
 	});
 });

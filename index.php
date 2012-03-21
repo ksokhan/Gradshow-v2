@@ -15,7 +15,11 @@
 
 		<script type="text/javascript" src="js/_global.js"></script>
 
-		<script type="text/javascript" src="js/gallery.js"></script>
+		<?php
+			if (file_exists ('js/'.$_GET['page'].'.js')) {
+				echo '<script type="text/javascript" src="js/'.$_GET['page'].'.js"></script>';
+			}
+		?>
 	</head>
 
 	<body id="navy">
@@ -42,10 +46,13 @@
 
 		<nav id="main-navigation">
 			<ul>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Students</a></li>
-				<li class="current_page"><a href="#">Gallery</a></li>
-				<li><a href="#">Video</a></li>
+				<?php
+					$current_page[$_GET['page']] = ' class="current_page"';
+				?>
+				<li<?=@$current_page['about']?>><a href="/about">About</a></li>
+				<li<?=@$current_page['students']?>><a href="/students">Students</a></li>
+				<li<?=@$current_page['gallery']?>><a href="/gallery">Gallery</a></li>
+				<li<?=@$current_page['video']?>><a href="/video">Video</a></li>
 			</ul>
 		</nav>
 
