@@ -159,8 +159,12 @@ Thumbnail Collections
 --------------------------------------------------------------------------*/
 #thumbnails {
   text-align: center;
+  font-size: 0;
+  line-height: 0;
 }
 #thumbnails .thumbnail {
+  font-size: 13px;
+  line-height: 17px;
   display: inline-block;
   vertical-align: middle;
   margin: 10px;

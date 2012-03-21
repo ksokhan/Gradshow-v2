@@ -18,7 +18,6 @@ window.addEvent ('domready', function () {
 		thumbnails.sort(function () { return 0.5 - Math.random(); });
 
 		// Spit them out
-
 		var container = $('thumbnails');
 		thumbnails.each (function (thumbnail, index) {
 			thumbnail.inject(container);
@@ -35,9 +34,6 @@ window.addEvent ('domready', function () {
 	--------------------------------------------------------------------------*/
 	// Filter by...
 	var showOnlyWhere = function (attribute, value) {
-		// Clear all category cards
-		$$('.category_card').destroy();
-
 		// Sort first...
 		if (attribute == 'data-course')
 			sortBy(courses);
@@ -52,8 +48,17 @@ window.addEvent ('domready', function () {
 			return;
 		}
 
+		// Clear all category cards
+		$$('.category_card').destroy();
+
 		// Now hide everything...
 		$$('.thumbnail').setStyle ('display', 'none');
+
+		// Get the container for the thumbnails
+		var container = $('thumbnails');
+
+		// Create a "name card" to denote where each new section begins
+		Elements.from ('<div class="thumbnail category_card"><span>' + value + '</span></div>').inject(container, 'top');
 
 		// How show the ones we want...
 		$$('.thumbnail[' + attribute + '="' + value + '"]').setStyle ('display', 'inline-block');

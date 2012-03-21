@@ -131,7 +131,7 @@
 
 				<h1>filter by course</h1>
 				<ul>
-					<li><a href="#" data-show-only-medium="all">All</a></li>
+					<li><a href="#" data-show-only-course="all">All</a></li>
 					<?php
 						foreach ($courses as $course)
 						{
