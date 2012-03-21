@@ -14,6 +14,8 @@
 		<script type="text/javascript" src="http://fast.fonts.com/jsapi/23779f16-a0da-4258-b1bd-964665cab549.js"></script>
 
 		<script type="text/javascript" src="js/_global.js"></script>
+
+		<script type="text/javascript" src="js/gallery.js"></script>
 	</head>
 
 	<body id="navy">
@@ -78,7 +80,7 @@
 
 							echo '
 								<div class="thumbnail" data-course="'.$random_course.'" data-medium="'.$random_medium.'" title="PROJECT NAME&lt;br&gt;Aaron Wright">
-									<a href="#"><img src="images/dummies/gallery-thumbnail-5.jpg" alt=""></a>
+									<a href="#">'.rand (1,5).'</a>
 								</div>
 							';
 						}
@@ -109,19 +111,19 @@
 			<section id="right" class="sidebar">
 				<h1>sort by</h1>
 				<ul>
-					<li><a href="#">random</a></li>
-					<li><a href="#">media</a></li>
-					<li><a href="#">course</a></li>
+					<li><a href="#" id="sort_randomly">random</a></li>
+					<li><a href="#" id="sort_by_medium">medium</a></li>
+					<li><a href="#" id="sort_by_course">course</a></li>
 				</ul>
 
 				<h1>filter by medium</h1>
 				<ul>
-					<li><a href="#">All</a></li>
+					<li><a href="#" data-show-only-medium="all">All</a></li>
 					<?php
 						foreach ($mediums as $medium)
 						{
 							echo '
-								<li><a href="#">'.$medium.'</a></li>
+								<li><a href="#" data-show-only-medium="'.$medium.'">'.$medium.'</a></li>
 							';
 						}
 					?>
@@ -129,12 +131,12 @@
 
 				<h1>filter by course</h1>
 				<ul>
-					<li><a href="#">All</a></li>
+					<li><a href="#" data-show-only-medium="all">All</a></li>
 					<?php
 						foreach ($courses as $course)
 						{
 							echo '
-								<li><a href="#">'.$course.'</a></li>
+								<li><a href="#" data-show-only-course="'.$course.'">'.$course.'</a></li>
 							';
 						}
 					?>
