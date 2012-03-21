@@ -55,7 +55,7 @@
 		</ul>
 
 		<h1>filter by</h1>
-		<ul>
+		<ul id="letters">
 			<li><a href="#" data-show-only-letter="all">All</a></li>
 			<?php
 				foreach ($letters as $letter)

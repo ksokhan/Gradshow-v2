@@ -39,6 +39,15 @@ body#white {
 body#white a {
   color: #3c3a89;
 }
+body#white h1 {
+  color: #f05123;
+}
+body#white .sidebar {
+  color: #3c3a89;
+}
+body#white #side-matter {
+  color: #3c3a89;
+}
 body#white #logo a {
   background: url(../images/wordmark.navy.png);
 }
@@ -52,6 +61,13 @@ body#white .category_card {
 body#white .tooltip {
   background: #3c3a89;
   color: #cbe8db;
+}
+body#white .bright-box {
+  background: #cbe8db;
+  color: #3c3a89;
+}
+body#white #map {
+  border-color: #f05123;
 }
 body#yellow {
   background: #ffe850;
@@ -74,6 +90,13 @@ body#yellow .tooltip {
   background: #3c3a89;
   color: #cbe8db;
 }
+body#yellow .bright-box {
+  background: #cbe8db;
+  color: #3c3a89;
+}
+body#yellow #map {
+  border-color: #3c3a89;
+}
 body#seafoam {
   background: #cbe8db;
   color: #f05123;
@@ -94,6 +117,13 @@ body#seafoam .category_card {
 body#seafoam .tooltip {
   background: #3c3a89;
   color: #cbe8db;
+}
+body#seafoam .bright-box {
+  background: #ffe850;
+  color: #3c3a89;
+}
+body#seafoam #map {
+  border-color: #f05123;
 }
 body#red {
   background: #f05123;
@@ -116,6 +146,13 @@ body#red .tooltip {
   background: #ffe850;
   color: #3c3a89;
 }
+body#red .bright-box {
+  background: #cbe8db;
+  color: #3c3a89;
+}
+body#red #map {
+  border-color: #3c3a89;
+}
 body#navy {
   background: #3c3a89;
   color: #ffe850;
@@ -137,6 +174,13 @@ body#navy .tooltip {
   background: #ffe850;
   color: #3c3a89;
 }
+body#navy .bright-box {
+  background: #ffe850;
+  color: #3c3a89;
+}
+body#navy #map {
+  border-color: #ffe850;
+}
 /*--------------------------------------------------------------------------
 Misc Tag Setup
 --------------------------------------------------------------------------*/
@@ -148,16 +192,23 @@ Misc Tag Setup
 }
 body {
   padding: 30px;
+  padding-bottom: 80px;
   font-family: "news-gothic-std", 'News Gothic MT', Helvetica, sans-serif;
   font-size: 13px;
   line-height: 17px;
   text-transform: uppercase;
+}
+body .nocase {
+  text-transform: none;
 }
 ul {
   list-style-type: none;
 }
 a {
   text-transform: none;
+}
+h1 {
+  margin-bottom: 20px;
 }
 /*--------------------------------------------------------------------------
 The Header
@@ -168,6 +219,9 @@ header {
   text-align: center;
   font-size: 13px;
   line-height: 17px;
+}
+header #logo {
+  margin: 0;
 }
 header #logo a {
   display: inline-block;
@@ -196,6 +250,9 @@ Layout
   font-size: 13px;
   line-height: 17px;
 }
+#page-wrapper #content {
+  position: relative;
+}
 #page-wrapper.three-columns #content {
   width: 70%;
   margin-left: 15%;
@@ -215,6 +272,7 @@ Layout
 }
 #page-wrapper.three-columns .sidebar h1 {
   margin-top: 15px;
+  margin-bottom: 0;
 }
 #page-wrapper.three-columns .sidebar h1:first-child {
   margin-top: 0;
@@ -379,4 +437,20 @@ Thumbnail Collections
 .active-menu-item {
   font-weight: bold;
   text-decoration: none;
+}
+#letters {
+  font-size: 0;
+  line-height: 0;
+}
+#letters li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+#letters li:first-child {
+  width: 100%;
+}
+#letters li a {
+  font-size: 13px;
+  line-height: 17px;
 }

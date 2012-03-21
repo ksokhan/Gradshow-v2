@@ -1,0 +1,25 @@
+/*--------------------------------------------------------------------------
+About Page Stuff
+--------------------------------------------------------------------------*/
+#content {
+  padding-left: 280px;
+}
+#side-matter {
+  position: absolute;
+  left: 0;
+  width: 250px;
+  text-align: center;
+}
+#side-matter p {
+  margin-bottom: 20px;
+}
+.bright-box {
+  padding: 20px;
+  margin: 20px 0;
+}
+.bright-box p + p {
+  margin-top: 20px;
+}
+#map {
+  border: 4px solid;
+}

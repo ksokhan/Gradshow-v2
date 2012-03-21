@@ -7,6 +7,11 @@
 
 		<link rel="stylesheet" type="text/css" href="css/html5reset.css" media="all">
 		<link rel="stylesheet" type="text/css" href="css/_global.css" media="all">
+		<?php
+			if (file_exists ('css/'.$_GET['page'].'.css')) {
+				echo '<link rel="stylesheet" type="text/css" href="css/'.$_GET['page'].'.css" media="all">';
+			}
+		?>
 
 		<script type="text/javascript" src="libraries/mootools/moo.core.1.4.5.js"></script>
 		<script type="text/javascript" src="libraries/mootools/moo.more.1.4.0.1.js"></script>

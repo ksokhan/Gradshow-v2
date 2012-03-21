@@ -20,7 +20,7 @@ window.addEvent ('domready', function () {
 	/*--------------------------------------------------------------------------
 	Gallery Tooltips
 	--------------------------------------------------------------------------*/
-	var tips = new Tips ('.thumbnail', {
+	var tips = new Tips ('.thumbnail:not(.student)', {
 		'className': 'tooltip',
 		'showDelay': 0,
 		'hideDelay': 0
