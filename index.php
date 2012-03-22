@@ -1,3 +1,7 @@
+<?php
+	$page_name    = isset ($_GET['page_name']) ? str_replace ('/', '.', trim ($_GET['page_name'], '/')) : 'home';
+	$page_options = isset ($_GET['options']) ? explode ('/', trim ($_GET['options'], '/')) : array ();
+?>
 <!DOCTYPE HTML>
 <html lang="en-US">
 	<head>
@@ -8,8 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="/css/html5reset.css" media="all">
 		<link rel="stylesheet" type="text/css" href="/css/_global.css" media="all">
 		<?php
-			if (file_exists ('css/'.$_GET['page_file'].'.css')) {
-				echo '<link rel="stylesheet" type="text/css" href="/css/'.$_GET['page_file'].'.css" media="all">';
+			if (file_exists ('css/'.$page_name.'.css')) {
+				echo '<link rel="stylesheet" type="text/css" href="/css/'.$page_name.'.css" media="all">';
 			}
 		?>
 
@@ -21,8 +25,8 @@
 		<script type="text/javascript" src="/js/_global.js"></script>
 
 		<?php
-			if (file_exists ('js/'.$_GET['page_file'].'.js')) {
-				echo '<script type="text/javascript" src="/js/'.$_GET['page_file'].'.js"></script>';
+			if (file_exists ('js/'.$page_name.'.js')) {
+				echo '<script type="text/javascript" src="/js/'.$page_name.'.js"></script>';
 			}
 		?>
 	</head>
@@ -52,7 +56,7 @@
 		<nav id="main-navigation">
 			<ul>
 				<?php
-					$current_page[$_GET['page_file']] = ' class="current_page"';
+					$current_page[$page_name] = ' class="current_page"';
 				?>
 				<li<?=@$current_page['about']?>><a href="/about">About</a></li>
 				<li<?=@$current_page['students']?>><a href="/students">Students</a></li>
@@ -62,13 +66,12 @@
 		</nav>
 
 		<?php
-			$page_file = isset ($_GET['page_file']) ? 'pages/'.$_GET['page_file'].'.php' : 'pages/home.php';
+			$page_file = 'pages/'.$page_name.'.php';
 
 			if (file_exists ($page_file)) {
 				require $page_file;
 			}
-			else
-			{
+			else {
 				require 'pages/_error404.php';
 			}
 		?>
