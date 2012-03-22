@@ -2,6 +2,9 @@
   position: absolute;
   background: #ddd;
 }
+.poster.dragging {
+  opacity: 0.5;
+}
 #content {
   min-height: 400px;
 }

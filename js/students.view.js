@@ -1,4 +1,7 @@
 window.addEvent ('domready', function () {
+	/*--------------------------------------------------------------------------
+	Randomly Scatter
+	--------------------------------------------------------------------------*/
 	var randomlyStack = function (container, divs) {
 		// randomize the divs
 		divs.sort(function() { return 0.5 - Math.random() });
@@ -27,4 +30,21 @@ window.addEvent ('domready', function () {
 	};
 
 	randomlyStack($('content'), $$('#content .poster'));
+
+	/*--------------------------------------------------------------------------
+	Make 'Em Draggable
+	--------------------------------------------------------------------------*/
+	var zindex = 10;
+	$$('#content .poster').each (function (poster, index) {
+		new Drag(poster, {
+			snap: 0,
+			onSnap: function(el) {
+				el.getSiblings().addClass('dragging');
+				el.setStyle('z-index', zindex++);
+			},
+			onComplete: function(el) {
+				el.getSiblings().removeClass('dragging');
+			}
+		});
+	});
 });
