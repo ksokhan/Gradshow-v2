@@ -90,7 +90,7 @@
 				</ul>
 			</div>
 			<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-			<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/ysdn12.json?callback=twitterCallback2&count=1"></script>
+			<script type="text/javascript" src="https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&amp;include_rts=false&amp;screen_name=ysdn12&amp;count=1&amp;callback=twitterCallback2"></script>
 		</footer>
 	</body>
 </html>
