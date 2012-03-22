@@ -1,6 +1,14 @@
 <?php
 	$page_name    = isset ($_GET['page_name']) ? str_replace ('/', '.', trim ($_GET['page_name'], '/')) : 'home';
-	$page_options = isset ($_GET['options']) ? explode ('/', trim ($_GET['options'], '/')) : array ();
+	$page_options = array ();
+	if (isset ($_GET['options']))
+	{
+		// BLAH/POOP/LAME/PANTS/A/B
+		$options_pieces = explode ('/', $_GET['options']);
+		for ($i=0; $i < count ($options_pieces); $i+=2) {
+			$page_options[$options_pieces[$i]] = $options_pieces[$i + 1];
+		}
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
