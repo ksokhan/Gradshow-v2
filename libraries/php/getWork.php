@@ -48,7 +48,7 @@ function drawUserImages() {
     {
         if ($imgs['meta'][$index]['featured'][0] == 'yes') {
             $img_med = $imgs['sizes'][$index]['sizes']['medium'];
-            $o .= '<img class="poster" style="width: ' . $img_med['width'] . '; height: ' . $img_med['height'] . '" src="/upload/files/' . $user->user_nicename . '/' . $img_med['file'] . '" data-course="" data-medium="" title="&lt;br&gt;Aaron Wright" />';
+            $o .= '<img class="poster" style="width: ' . $img_med['width'] . '; height: ' . $img_med['height'] . '" src="/upload/files/' . $user->user_nicename . '/' . $img_med['file'] . '" data-course="" data-medium="" title="Project Title" />';
         }
     }
     return $o;

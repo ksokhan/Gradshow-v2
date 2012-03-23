@@ -49,4 +49,29 @@ window.addEvent ('domready', function () {
 			}
 		});
 	});
+
+	/*--------------------------------------------------------------------------
+	The Overlay
+	--------------------------------------------------------------------------*/
+	Asset.javascript ('/js/classes/ModalWindow.js', {
+		'onLoad': function () {
+			$$('.poster').addEvent('click', function (e) {
+				var poster = this;
+				new Request.HTML ({
+					'url': '/partial/overlay/options/student_id/' + poster.get ('data-student-id'),
+					'onSuccess': function (responseTree, responseElements, responseHTML, responseJavaScript) {
+						new ModalWindow ({
+							'id': 'overlay_window',
+							'contents': responseHTML,
+							'buttons': [
+								{
+									'label': 'X'
+								}
+							]
+						});
+					}
+				}).get();
+			});
+		}
+	});
 });
