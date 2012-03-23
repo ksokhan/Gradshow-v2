@@ -69,7 +69,7 @@ window.addEvent ('domready', function () {
 		Elements.from ('<div class="thumbnail category_card"><span>' + value + '</span></div>').inject(container, 'top');
 
 		// How show the ones we want...
-		$$('.thumbnail[' + attribute + '^="' + value + '"]').setStyle ('display', 'inline-block');
+		$$('.thumbnail[' + attribute + '^="' + value.toUpperCase() + '"]').setStyle ('display', 'inline-block');
 	};
 
 	/*--------------------------------------------------------------------------
