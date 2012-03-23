@@ -1,4 +1,7 @@
 <?php
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+
 	$page_name    = isset ($_GET['page_name']) ? str_replace ('/', '.', trim ($_GET['page_name'], '/')) : 'home';
 	$page_options = array ();
 	if (isset ($_GET['options']))

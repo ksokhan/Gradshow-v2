@@ -2,13 +2,10 @@
 	<section id="content">
 		<div id="thumbnails">
 			<?php
-				$letters = array ();
-				for ($i = 'a'; $i <= 'z'; $i++) {
-					$letters[] = $i;
-					if ($i == 'z') break;
-				}
+				require( './upload/wp-load.php' );
+				include('./libraries/php/getStudents.php');
 
-				for ($i = 0; $i < 105; $i++) {
+				/*for ($i = 0; $i < 105; $i++) {
 					$random_first_name = $letters[array_rand ($letters)];
 					$random_last_name = $letters[array_rand ($letters)];
 
@@ -21,7 +18,7 @@
 							</div>
 						</div>
 					';
-				}
+				}*/
 			?>
 		</div>
 	</section>
@@ -58,6 +55,12 @@
 		<ul id="letters">
 			<li><a href="#" data-show-only-letter="all">All</a></li>
 			<?php
+				$letters = array ();
+				for ($i = 'a'; $i <= 'z'; $i++) {
+					$letters[] = $i;
+					if ($i == 'z') break;
+				}
+
 				foreach ($letters as $letter)
 				{
 					echo '
