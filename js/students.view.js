@@ -39,11 +39,13 @@ window.addEvent ('domready', function () {
 		new Drag(poster, {
 			snap: 0,
 			onSnap: function(el) {
+				el.addClass('draggedItem');
 				el.getSiblings().addClass('dragging');
 				el.setStyle('z-index', zindex++);
 			},
 			onComplete: function(el) {
 				el.getSiblings().removeClass('dragging');
+				el.removeClass('draggedItem');
 			}
 		});
 	});

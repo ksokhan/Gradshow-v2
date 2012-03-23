@@ -1,16 +1,13 @@
 <div id="page-wrapper" class="three-columns">
 	<section id="content">
 		<?php
-			for ($i = 0; $i < 5; $i++) {
-				$random_width = rand(100,300);
-				$random_height = rand(100,300);
+		require( '../upload/wp-load.php' );
+		$id = $page_options['id'];
+		$user = get_userdata( $id );
+	  	require( './libraries/php/getWork.php' );
 
-				echo '
-					<div style="width: '.$random_width.'px; height: '.$random_height.'px;" class="poster" data-course="" data-medium="" title="PROJECT NAME&lt;br&gt;Aaron Wright">
-						I AM A WORK
-					</div>
-				';
-			}
+	  	echo drawUserImages();
+
 		?>
 	</section>
 

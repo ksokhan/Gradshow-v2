@@ -267,10 +267,12 @@ Layout
 
 			&#left {
 				left: 30px;
+				max-width: 250px;
 			}
 			&#right {
 				right: 30px;
 				text-align: right;
+				max-width: 250px;
 			}
 			h1 {
 				margin-top: 15px;
@@ -470,6 +472,8 @@ Thumbnail Collections
 	// width: 20px * @columns;
 	font-size: 0;
 	line-height: 0;
+	max-width: 100px;
+	margin: 0 0 0 auto; // to make sure it aligns to the right
 
 	li {
 		display: inline-block;

@@ -8,6 +8,9 @@
 	Give it a Shadow
 	--------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------
+	Opacity
+	--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------
 	Gradient
 	--------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------
@@ -265,10 +268,12 @@ Layout
 }
 #page-wrapper.three-columns .sidebar#left {
   left: 30px;
+  max-width: 250px;
 }
 #page-wrapper.three-columns .sidebar#right {
   right: 30px;
   text-align: right;
+  max-width: 250px;
 }
 #page-wrapper.three-columns .sidebar h1 {
   margin-top: 15px;
@@ -441,6 +446,8 @@ Thumbnail Collections
 #letters {
   font-size: 0;
   line-height: 0;
+  max-width: 100px;
+  margin: 0 0 0 auto;
 }
 #letters li {
   display: inline-block;

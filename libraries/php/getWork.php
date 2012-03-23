@@ -1,8 +1,4 @@
 <?php
-//require( '../../upload/wp-load.php' );
-?>
-
-<?php
 
 function getData() {
     global $wpdb;
@@ -23,7 +19,7 @@ function getData() {
     }
     return $img;
 }
-$id = $_REQUEST['id'];
+
 $imgs = getData();
 
 function imageTitleList() {
@@ -42,7 +38,7 @@ function imageTitleList() {
 }
 
 
-function drawProfileImages() {
+function drawUserImages() {
     global $imgs;
     global $id;
 
@@ -52,13 +48,13 @@ function drawProfileImages() {
     {
         if ($imgs['meta'][$index]['featured'][0] == 'yes') {
             $img_med = $imgs['sizes'][$index]['sizes']['medium'];
-            $o .= '<img class="draggable" style="width: ' . $img_med['width'] . '; height: ' . $img_med['height'] . '" src="/upload/files/' . $user->user_nicename . '/' . $img_med['file'] . '" />';
+            $o .= '<img class="poster" style="width: ' . $img_med['width'] . '; height: ' . $img_med['height'] . '" src="/upload/files/' . $user->user_nicename . '/' . $img_med['file'] . '" data-course="" data-medium="" title="&lt;br&gt;Aaron Wright" />';
         }
     }
     return $o;
 }
 
-function getProjectThumbs($i) {
+function overlayProjectThumbs($i) {
     global $imgs;
     global $id;
 

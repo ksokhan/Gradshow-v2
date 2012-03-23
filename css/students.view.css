@@ -1,6 +1,10 @@
 .poster {
   position: absolute;
   background: #ddd;
+  cursor: url(/images/open_hand.cur), default !important;
+}
+.poster.draggedItem {
+  cursor: url(/images/closed_hand.cur), default !important;
 }
 .poster.dragging {
   opacity: 0.5;
