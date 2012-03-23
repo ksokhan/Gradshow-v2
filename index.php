@@ -43,7 +43,10 @@
 		?>
 	</head>
 
-	<body id="white">
+	<?php
+		$colour_scheme = !empty ($_COOKIE['pique-bg-colour']) ? str_replace ('set-bg-', '', $_COOKIE['pique-bg-colour']) : 'white';
+	?>
+	<body id="<?=$colour_scheme?>">
 		<header>
 			<h1 id="logo"><a href="#">York / Sheridan Design Pique Grad Show</a></h1>
 

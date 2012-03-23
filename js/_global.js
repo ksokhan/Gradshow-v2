@@ -33,8 +33,10 @@ window.addEvent ('domready', function () {
 		this.getParent ('ul').getElement ('.active').removeClass ('active');
 		this.addClass ('active');
 		document.body.set ('id', this.get ('text').toLowerCase());
-		localStorage.setItem('pique-bg-colour', this.get('id'));
+		// localStorage.setItem('pique-bg-colour', this.get('id'));
+		Cookie.write ('pique-bg-colour', this.get('id'));
 	});
-	var stored_bg = localStorage.getItem ('pique-bg-colour') || 'set-bg-white';
+	// var stored_bg = localStorage.getItem ('pique-bg-colour') || 'set-bg-white';
+	var stored_bg = Cookie.read ('pique-bg-colour') || 'set-bg-white';
 	$(stored_bg).fireEvent ('click');
 });
