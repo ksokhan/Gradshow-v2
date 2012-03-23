@@ -133,6 +133,13 @@ window.addEvent ('domready', function () {
 	// Stuff the folders
 	Object.each (first_names_by_letter, function (arr, letter) {
 		first_names_by_letter[letter] = $$('.thumbnail[data-first-name^="' + letter.toUpperCase() + '"]');
+		first_names_by_letter[letter].sort (function (a, b) {
+			if (a.get('data-first-name') < b.get('data-first-name'))
+				return -1;
+			if (a.get('data-first-name') > b.get('data-first-name'))
+				return 1;
+			return 0;
+		});
 	});
 	// Sort by...
 	$$('#sort_by_first_name').addEvent ('click', function (e) {
@@ -206,6 +213,13 @@ window.addEvent ('domready', function () {
 	// Stuff the folders
 	Object.each (last_names_by_letter, function (arr, letter) {
 		last_names_by_letter[letter] = $$('.thumbnail[data-last-name^="' + letter.toUpperCase() + '"]');
+		last_names_by_letter[letter].sort (function (a, b) {
+			if (a.get('data-last-name') < b.get('data-last-name'))
+				return -1;
+			if (a.get('data-last-name') > b.get('data-last-name'))
+				return 1;
+			return 0;
+		});
 	});
 	// Sort by...
 	$$('#sort_by_last_name').addEvent ('click', function (e) {
