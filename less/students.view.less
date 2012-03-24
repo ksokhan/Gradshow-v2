@@ -1,3 +1,5 @@
+@import '_mixins.less';
+
 .poster {
 	position: absolute;
 	background: #ddd;
@@ -9,3 +11,337 @@
 #content {
 	min-height: 400px;
 }
+#page-wrapper #right.studentProfile {
+	text-align: left;
+	h1, h2, p, a {
+		text-align: left;
+	}
+	h2 {
+		margin-bottom: 0.5em;
+		margin-top: 1.5em;
+	}
+	h1 {
+		margin-bottom: 1em;
+	}
+	.photo {
+		width: 100%;
+	}
+	ol {
+		text-align: left;
+		font-size: 0.8em;
+
+		li {
+			font-size: 1.2em;
+		}
+	}
+}
+
+/*--------------------------------------------------------------------------
+The Overlay Window
+--------------------------------------------------------------------------*/
+#modal-window-viewport-shader {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	background: fade(white, 90%);
+}
+#overlay-window {
+	position: relative;
+	width: @width;
+	height: @height;
+
+	@col-width: 200px;
+	@gutter: 30px;
+	@img-max-width: 550px;
+	@img-max-height: 550px;
+	@header-height: 40px;
+	@thumb-height: 70px;
+	@caption-height: 50px;
+
+	.window-contents {
+		position: relative;
+
+		header {
+			text-align: left;
+			height: @header-height;
+			line-height: @header-height;
+			font-size: 30px;
+			font-weight: bold;
+
+			h1, h2 {
+				display: inline-block;
+				margin: 0;
+				margin-right: 20px;
+			}
+			h2 {
+				font-size: 15px;
+			}
+		}
+
+		#overlay-left-column,
+		#overlay-right-column {
+			display: inline-block;
+			vertical-align: top;
+		}
+		#overlay-left-column {
+			#overlay-large-image {
+				margin-bottom: 15px;
+
+				img {
+					max-width: @img-max-width;
+					max-height: @img-max-height;
+				}
+			}
+		}
+		#overlay-right-column {
+			margin-left: @gutter;
+			width: @col-width;
+
+			#overlay-description {
+				overflow-y: auto;
+				max-height: @img-max-height / 2;
+				margin-bottom: 15px;
+			}
+		}
+		#overlay-thumbnails {
+			font-size: 0;
+			line-height: 0;
+			height: @thumb-height;
+
+			a {
+				float: left;
+				text-align: center;
+				width: 95px;
+				height: 70px;
+				margin-right: 10px;
+
+				&.active {
+					border: 2px solid;
+					border-color: #F05123;
+
+					span {
+						width: 91px;
+						height: 66px;
+						border: 2px solid white;
+					}
+				}
+				span {
+					overflow: hidden;
+					display: block;
+					width: 95px;
+					height: 70px;
+					border: 4px solid white;
+				}
+			}
+		}
+	}
+	.button-container {
+		position: absolute;
+		left: -50px;
+		top: 0;
+
+		a.button {
+			height: @header-height;
+			line-height: @header-height;
+			font-size: 30px;
+			cursor: pointer;
+		}
+	}
+}
+
+/*
+// OVERLAY CSS
+// ===========================================
+#modal-window-viewport-shader {
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	background: rgba(255,255,255,0.95);
+	z-index:899;
+}
+.modal-window {
+	z-index: 900;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	.button-container {
+		position: relative;
+		.button {
+			font-size: 2em;
+			position: absolute;
+			top: 0;
+			left:0;
+
+		}
+	}
+}
+
+.button.close {
+	font-size: 3em;
+	text-decoration: none;
+	line-height: 100%;
+	&:hover { background: transparent !important;}
+}
+
+
+#olcontainer{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;
+
+}
+
+#olleftcolumn{
+	float: left;
+	width: 730px;
+	height: 100%;
+
+}
+
+#olrightcolumn{
+float: right;
+	width: 270px;
+	height: 100%;
+
+}
+
+// X close button
+#olclose{
+	display: inline-block;
+	width: 55px;
+
+}
+
+// Top banner
+#olheader{
+	width: 100%;
+	height: 40px;
+
+	color: #F05123;
+	text-transform: uppercase;
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+// Project title style
+.olprojtitle{
+	text-transform: uppercase;
+	color:#3C3A89;
+	font: bold 26px Helvetica, Arial, Sans-serif;
+	font-weight: bold;
+}
+
+// spacing for student name and medium
+.olstudname{
+	margin-left: 10px;
+}
+
+// main image container
+#olmainimgcontainer{
+	width: 675px;
+	height: 450px;
+	margin-left: 55px;
+
+}
+
+// main image style - fits image to container by height
+.olmainimg{
+	height: 100%;
+}
+
+// caption container
+#olcaption{
+	width: 675px;
+	margin-left: 55px;
+	margin-top: 5px;
+	color: #F05123;
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+
+}
+
+// thumbnail contaier
+#olthumbcontainer{
+	width: 675px;
+	height: 67px;
+	margin-top: 20px;
+	margin-left: 55px;
+
+}
+
+// thumbnail style - for spacing
+.olthumbnail{
+	margin-right: 16px;
+}
+
+// description container
+#oldescription{
+	overflow: hidden;
+	font: 12px/140% "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	margin-left: 30px;
+	margin-top: 40px;
+
+	width: 230px;
+	color:#3C3A89;
+	text-align: left;
+}
+
+// student work list container
+#olmorework{
+	margin-top: 30px;
+	width: 230px;
+	margin-left: 30px;
+	color: #F05123;
+	font: 12px/150% "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+
+}
+
+// student work list title style
+.ollisttitle{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+// ordered list style for student work links
+ol.worklist{
+	margin: 0px;
+	padding-top: 0px;
+	padding-left: 16px;
+}
+
+// list item style - bolds numbers
+li.worklistitem{
+	font-weight: bold;
+}
+
+// list item span - unbolds text
+li.worklistitem span{
+	font-weight: normal;
+}
+
+// work list link styles
+a.olworklink{
+	color: #F05123;
+	text-decoration: none;
+}
+
+a.olworklink:visited{
+	color: #F05123
+}
+
+a.olworklink:hover{
+	text-decoration: underline;
+}
+
+a.olworklink:active{
+	text-decoration: underline;
+}
+*/

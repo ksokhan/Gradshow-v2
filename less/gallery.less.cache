@@ -1,0 +1,14 @@
+a:4:{s:4:"root";s:19:"./less/gallery.less";s:8:"compiled";s:319:"#thumbnails.gallery .thumbnail {
+  border:0 none;
+  width:140px;
+  height:140px;
+}
+#thumbnails.gallery .thumbnail a {
+  border:solid 4px transparent;
+  display:block;
+  width:100%;
+  height:100%;
+  background-position:center center !important;
+}
+#thumbnails.gallery .thumbnail a:hover { background-color:transparent; }
+";s:5:"files";a:1:{s:41:"/home/ksokhan/pique-dev/less/gallery.less";i:1332606051;}s:7:"updated";i:1332606052;}

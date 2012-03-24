@@ -2,6 +2,27 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 
+	// LESS COMPILER
+	// ================================
+	include "./libraries/less/lessc.inc.php";
+
+	function auto_compile_less($less_fname, $css_fname) {
+	  // load the cache
+	  $cache_fname = $less_fname.".cache";
+	  if (file_exists($cache_fname)) {
+	    $cache = unserialize(file_get_contents($cache_fname));
+	  } else {
+	    $cache = $less_fname;
+	  }
+
+	  $new_cache = lessc::cexecute($cache);
+	  if (!is_array($cache) || $new_cache['updated'] > $cache['updated']) {
+	    file_put_contents($cache_fname, serialize($new_cache));
+	    file_put_contents($css_fname, $new_cache['compiled']);
+	  }
+	}
+	// ================================
+
 	$page_name    = !empty ($_GET['page_name']) ? str_replace ('/', '.', trim ($_GET['page_name'], '/')) : 'home';
 	$page_options = array ();
 
@@ -20,11 +41,15 @@
 		<meta charset="UTF-8">
 
 		<title>PIQUE</title>
-
+		<?php
+			auto_compile_less('./less/_global.less', './css/_global.css');
+		?>
 		<link rel="stylesheet" type="text/css" href="/css/html5reset.css" media="all">
 		<link rel="stylesheet" type="text/css" href="/css/_global.css" media="all">
 		<?php
-			if (file_exists ('css/'.$page_name.'.css')) {
+
+			if (file_exists ('./less/'.$page_name.'.less')) {
+				auto_compile_less('./less/' . $page_name. '.less', './css/' . $page_name . '.css');
 				echo '<link rel="stylesheet" type="text/css" href="/css/'.$page_name.'.css" media="all">';
 			}
 		?>

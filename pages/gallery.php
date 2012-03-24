@@ -1,38 +1,52 @@
 <div id="page-wrapper" class="three-columns">
 	<section id="content">
-		<div id="thumbnails">
+		<div id="thumbnails" class="gallery">
 			<?php
+				require('../upload/wp-load.php');
+				// we want all users
+				// so leave it blank
+				$id = "gallery";
+
+				require('./libraries/php/getWork.php');
+
+
 				$courses = array (
-					'Book Design',
-					'Corporate ID',
+					'Typography',
+					'Typeface Design',
 					'Communication Design',
-					'Design Workshop',
-					'Editorial Design',
-					'Independent Study',
-					'Information Design',
+					'Design and Systems',
 					'Interactivity Design',
+					'Time-Based Communication',
 					'Package Design',
-					'Time-Based Design',
-					'Typography'
+					'Editorial Design',
+					'Information Design',
+					'Contemporary Problems in Design',
+					'Design for Public Awareness',
+					'Self, Society and Design',
+					'Image and Influence',
+					'Design Internship',
+					'Design in Interactive Environments',
+					'Type in Motion',
+					'Interactive System Design',
+					'Design Workshop',
+					'Book Design',
+					'Professional Aspects of Design',
+					'Independent Studies'
 				);
 				$mediums = array (
+					'3D',
+					'Book',
+					'Editorial',
+					'Typography',
+					'Poster',
+					'Motion',
 					'Interactive',
-					'Package',
-					'Print',
-					'Video'
+					'Identity',
+					'Information'
 				);
 
-				for ($i = 0; $i < 105; $i++) {
-					$random_course = $courses[array_rand ($courses)];
-					$random_medium = $mediums[array_rand ($mediums)];
-					$random_number = rand (1, 5);
+				echo drawAllImages();
 
-					echo '
-						<div class="thumbnail" data-course="'.$random_course.'" data-medium="'.$random_medium.'" title="PROJECT NAME&lt;br&gt;Aaron Wright">
-							<a href="#">'.rand (1,5).'</a>
-						</div>
-					';
-				}
 			?>
 		</div>
 	</section>
@@ -71,9 +85,18 @@
 			<?php
 				foreach ($mediums as $medium)
 				{
-					echo '
-						<li><a href="#" data-show-only-medium="'.$medium.'">'.$medium.'</a></li>
-					';
+					$course_converted = str_replace(' ', '-', strtolower($course));
+
+				    $count = $wpdb->get_results("
+				        SELECT COUNT(meta_key)
+				        FROM $wpdb->postmeta
+				        WHERE meta_value = '$course_converted'
+				        AND meta_key = 'course'
+
+				    ", ARRAY_A );
+				    if ($count[0]['COUNT(meta_key)'] != '0') {
+						echo '<li><a href="#" data-show-only-medium="'. strtolower($medium).'">'.$medium.'</a></li>';
+					}
 				}
 			?>
 		</ul>
@@ -84,9 +107,21 @@
 			<?php
 				foreach ($courses as $course)
 				{
-					echo '
-						<li><a href="#" data-show-only-course="'.$course.'">'.$course.'</a></li>
-					';
+					$course_converted = str_replace(' ', '-', strtolower($course));
+
+				    $count = $wpdb->get_results("
+				        SELECT COUNT(meta_key)
+				        FROM $wpdb->postmeta
+				        WHERE meta_value = '$course_converted'
+				        AND meta_key = 'course'
+
+				    ", ARRAY_A );
+					//print_r($count);
+					//
+				    if ($count[0]['COUNT(meta_key)'] != '0') {
+				    	echo '<li><a href="#" data-show-only-course="'. $course_converted .'">'.$course.'</a></li>';
+				    }
+
 				}
 			?>
 		</ul>

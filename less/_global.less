@@ -29,6 +29,7 @@ body#white {
 
 	a {
 		color: @navy;
+		&:hover { background: @seafoam; }
 	}
 	h1 {
 		color: @red;
@@ -40,7 +41,7 @@ body#white {
 		color: @navy;
 	}
 	#logo a {
-		background: url(../images/wordmark.navy.png);
+		background: url(../images/wordmark.red.png);
 	}
 	.thumbnail {
 		border-color: @navy;
@@ -60,6 +61,7 @@ body#white {
 	#map {
 		border-color: @red;
 	}
+	.gallery .thumbnail a:hover { border-color: @red; }
 }
 // YELLOW
 body#yellow {
@@ -68,6 +70,7 @@ body#yellow {
 
 	a {
 		color: @red;
+		&:hover { background: @yellow - #111; }
 	}
 	#logo a {
 		background: url(../images/wordmark.navy.png);
@@ -90,6 +93,7 @@ body#yellow {
 	#map {
 		border-color: @navy;
 	}
+	.gallery .thumbnail a:hover { border-color: @red; }
 }
 // SEAFOAM
 body#seafoam {
@@ -98,6 +102,7 @@ body#seafoam {
 
 	a {
 		color: @navy;
+		&:hover { background: @seafoam - #111; }
 	}
 	#logo a {
 		background: url(../images/wordmark.red.png);
@@ -120,6 +125,7 @@ body#seafoam {
 	#map {
 		border-color: @red;
 	}
+	.gallery .thumbnail a:hover { border-color: @red; }
 }
 // RED
 body#red {
@@ -128,6 +134,7 @@ body#red {
 
 	a {
 		color: @yellow;
+		&:hover { background: @red - #111; }
 	}
 	#logo a {
 		background: url(../images/wordmark.seafoam.png);
@@ -150,6 +157,7 @@ body#red {
 	#map {
 		border-color: @navy;
 	}
+	.gallery .thumbnail a:hover { border-color: @navy; }
 }
 // NAVY
 body#navy {
@@ -158,6 +166,7 @@ body#navy {
 
 	a {
 		color: @seafoam;
+		&:hover { background: @navy - #111; }
 	}
 	#logo a {
 		background: url(../images/wordmark.yellow.png);
@@ -180,6 +189,7 @@ body#navy {
 	#map {
 		border-color: @yellow;
 	}
+	.gallery .thumbnail a:hover { border-color: @red; }
 }
 
 /*--------------------------------------------------------------------------
@@ -188,6 +198,10 @@ Misc Tag Setup
 * {
 	.box-sizing(border-box);
 }
+html {
+	overflow-y: scroll;
+}
+
 body {
 	padding: 30px;
 	padding-bottom: 80px;
@@ -205,8 +219,9 @@ ul {
 a {
 	text-transform: none;
 }
-h1 {
+h1, h2 {
 	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 /*--------------------------------------------------------------------------
@@ -462,6 +477,9 @@ Thumbnail Collections
 }
 .tooltip {
 	padding: 15px;
+	.normal-type();
+	font-weight: bold;
+	text-transform: none;
 }
 .active-menu-item {
 	font-weight: bold;

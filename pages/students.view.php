@@ -2,8 +2,10 @@
 	<section id="content">
 		<?php
 		require( '../upload/wp-load.php' );
+
 		$id = $page_options['id'];
 		$user = get_userdata( $id );
+
 	  	require( './libraries/php/getWork.php' );
 
 	  	echo drawUserImages();
@@ -31,7 +33,18 @@
 		</p>
 	</section>
 
-	<section id="right" class="sidebar">
-		right sidebar
+	<section id="right" class="sidebar studentProfile">
+		<h1><?php echo $user->first_name . " " . $user->last_name ?></h1>
+  		<img class="photo" src="/images/student-image-profiles/<?php echo $user->first_name . "_" . $user->last_name ?>02.jpg">
+
+ 		<h2>Contact</h2>
+		<p><a href="<?php echo $user->user_url ?>"><?php echo $user->user_url ?></a></p>
+
+		<h2>Projects</h2>
+		<ol>
+	      <?php
+	          echo imageTitleList();
+	      ?>
+	    </ol>
 	</section>
 </div>

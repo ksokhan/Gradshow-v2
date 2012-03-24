@@ -1,4 +1,5 @@
 window.addEvent ('domready', function () {
+	var posters = $$('#content .poster');
 	/*--------------------------------------------------------------------------
 	Randomly Scatter
 	--------------------------------------------------------------------------*/
@@ -29,21 +30,26 @@ window.addEvent ('domready', function () {
 		});
 	};
 
-	randomlyStack($('content'), $$('#content .poster'));
+	randomlyStack($('content'), posters);
 
 	/*--------------------------------------------------------------------------
 	Make 'Em Draggable
 	--------------------------------------------------------------------------*/
 	var zindex = 10;
-	$$('#content .poster').each (function (poster, index) {
+	posters.each (function (poster, index) {
+		poster.store('clickable', true);
 		new Drag(poster, {
-			snap: 0,
-			onSnap: function(el) {
+			'snap': 0,
+			'onSnap': function(el) {
+				// Can't click!
+				el.store('clickable', false);
 				el.addClass('draggedItem');
 				el.getSiblings().addClass('dragging');
 				el.setStyle('z-index', zindex++);
 			},
-			onComplete: function(el) {
+			'onComplete': function(el) {
+				// Wait 500ms then say the item can be clicked again
+				el.store.delay(500, el, ['clickable', true]);
 				el.getSiblings().removeClass('dragging');
 				el.removeClass('draggedItem');
 			}
@@ -53,25 +59,37 @@ window.addEvent ('domready', function () {
 	/*--------------------------------------------------------------------------
 	The Overlay
 	--------------------------------------------------------------------------*/
+	var enlarge_thumbnail = function (e) {
+		if (e) e.preventDefault();
+		$$('#overlay-large-image img').set ('src', this.get ('href'));
+		this.addClass('active').getSiblings().removeClass('active');
+	};
+	var ms_before_not_a_click = 100;
 	Asset.javascript ('/js/classes/ModalWindow.js', {
 		'onLoad': function () {
-			$$('.poster').addEvent('click', function (e) {
+			posters.addEvent ('click', function () {
+				// Just finished a drag? Then it's not a click!
+				if (this.retrieve ('clickable', false) == false) return;
+
 				var poster = this;
 				new Request.HTML ({
-					'url': '/partial/overlay/options/student_id/' + poster.get ('data-student-id'),
+					'url': poster.get ('data-url'),
 					'onSuccess': function (responseTree, responseElements, responseHTML, responseJavaScript) {
 						new ModalWindow ({
-							'id': 'overlay_window',
+							'id': 'overlay-window',
 							'contents': responseHTML,
 							'buttons': [
 								{
-									'label': 'X'
+									'label': '&times;'
 								}
-							]
+							],
+							'onShow': function (window_element) {
+								$$('#overlay-thumbnails a').addEvent('click', enlarge_thumbnail)[0].fireEvent('click');
+							}
 						});
 					}
 				}).get();
-			});
+			}).filter('.active').fireEvent ('click');
 		}
 	});
 });

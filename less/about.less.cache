@@ -1,0 +1,15 @@
+a:4:{s:4:"root";s:17:"./less/about.less";s:8:"compiled";s:271:"#content { padding-left:280px; }
+#side-matter {
+  position:absolute;
+  left:0;
+  width:250px;
+  text-align:center;
+}
+#side-matter p { margin-bottom:20px; }
+.bright-box {
+  padding:20px;
+  margin:20px 0;
+}
+.bright-box p + p { margin-top:20px; }
+#map { border:4px solid; }
+";s:5:"files";a:1:{s:39:"/home/ksokhan/pique-dev/less/about.less";i:1332468200;}s:7:"updated";i:1332532136;}

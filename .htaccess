@@ -1,3 +1,4 @@
 RewriteEngine On
 
 RewriteRule ^([a-z0-9/_-]+?)(/options/([a-z0-9/_-]+))?/?$ index.php?page_name=$1&options=$3 [NC,QSA,L]
+RewriteRule ^partial/([a-z0-9/_-]+?)(/options/([a-z0-9/_-]+))?/?$ partial.php?partial_name=$1&options=$3 [NC,QSA,L]

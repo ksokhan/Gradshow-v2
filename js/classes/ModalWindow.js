@@ -91,6 +91,7 @@ var ModalWindow;
 					var new_button = new Element ('a', {
 						'class': 'button ' + (button.className || ''),
 						'html': button.label,
+						'href': button.href || '#',
 						'events': button.events || {}
 					});
 
@@ -111,7 +112,10 @@ var ModalWindow;
 			}
 
 			// Show the window, centered
-			_self.window_element.inject (document.body).position ().fade('hide').fade('in');
+			_self.window_element.inject (document.body).fade('hide');
+			(function () {
+				_self.window_element.position ().fade('in');
+			}).delay(500);
 
 			// This is the "show" method
 			this.fireEvent ('show', [ _self.window_element, _self ]);
