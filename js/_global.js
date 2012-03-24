@@ -40,3 +40,5 @@ window.addEvent ('domready', function () {
 	var stored_bg = Cookie.read ('pique-bg-colour') || 'set-bg-white';
 	$(stored_bg).fireEvent ('click');
 });
+
+

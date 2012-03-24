@@ -1,4 +1,5 @@
 @import '_mixins.less';
+@import '_colours.less';
 
 .poster {
 	position: absolute;
@@ -61,6 +62,10 @@ The Overlay Window
 	@thumb-height: 70px;
 	@caption-height: 50px;
 
+	a:hover {
+		background-color: @seafoam !important;
+	}
+
 	.window-contents {
 		position: relative;
 
@@ -70,14 +75,20 @@ The Overlay Window
 			line-height: @header-height;
 			font-size: 30px;
 			font-weight: bold;
+			margin-bottom: 15px;
 
 			h1, h2 {
 				display: inline-block;
 				margin: 0;
-				margin-right: 20px;
+				margin-right: 15px;
+			}
+			h1 {
+				color: @navy !important;
 			}
 			h2 {
+				font-weight: normal !important;
 				font-size: 15px;
+				color: @red !important;
 			}
 		}
 
@@ -101,8 +112,9 @@ The Overlay Window
 			width: @col-width;
 
 			#overlay-description {
+				color: @navy !important;
 				overflow-y: auto;
-				max-height: @img-max-height / 2;
+				// max-height: @img-max-height * 0.66;
 				margin-bottom: 15px;
 			}
 		}
@@ -120,7 +132,7 @@ The Overlay Window
 
 				&.active {
 					border: 2px solid;
-					border-color: #F05123;
+					border-color: @red !important;
 
 					span {
 						width: 91px;
@@ -144,6 +156,7 @@ The Overlay Window
 		top: 0;
 
 		a.button {
+			color: @red !important;
 			height: @header-height;
 			line-height: @header-height;
 			font-size: 30px;
@@ -151,197 +164,3 @@ The Overlay Window
 		}
 	}
 }
-
-/*
-// OVERLAY CSS
-// ===========================================
-#modal-window-viewport-shader {
-	position: fixed;
-	top:0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	background: rgba(255,255,255,0.95);
-	z-index:899;
-}
-.modal-window {
-	z-index: 900;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
-	.button-container {
-		position: relative;
-		.button {
-			font-size: 2em;
-			position: absolute;
-			top: 0;
-			left:0;
-
-		}
-	}
-}
-
-.button.close {
-	font-size: 3em;
-	text-decoration: none;
-	line-height: 100%;
-	&:hover { background: transparent !important;}
-}
-
-
-#olcontainer{
-	width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 70px;
-
-}
-
-#olleftcolumn{
-	float: left;
-	width: 730px;
-	height: 100%;
-
-}
-
-#olrightcolumn{
-float: right;
-	width: 270px;
-	height: 100%;
-
-}
-
-// X close button
-#olclose{
-	display: inline-block;
-	width: 55px;
-
-}
-
-// Top banner
-#olheader{
-	width: 100%;
-	height: 40px;
-
-	color: #F05123;
-	text-transform: uppercase;
-	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-}
-
-// Project title style
-.olprojtitle{
-	text-transform: uppercase;
-	color:#3C3A89;
-	font: bold 26px Helvetica, Arial, Sans-serif;
-	font-weight: bold;
-}
-
-// spacing for student name and medium
-.olstudname{
-	margin-left: 10px;
-}
-
-// main image container
-#olmainimgcontainer{
-	width: 675px;
-	height: 450px;
-	margin-left: 55px;
-
-}
-
-// main image style - fits image to container by height
-.olmainimg{
-	height: 100%;
-}
-
-// caption container
-#olcaption{
-	width: 675px;
-	margin-left: 55px;
-	margin-top: 5px;
-	color: #F05123;
-	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-
-}
-
-// thumbnail contaier
-#olthumbcontainer{
-	width: 675px;
-	height: 67px;
-	margin-top: 20px;
-	margin-left: 55px;
-
-}
-
-// thumbnail style - for spacing
-.olthumbnail{
-	margin-right: 16px;
-}
-
-// description container
-#oldescription{
-	overflow: hidden;
-	font: 12px/140% "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	margin-left: 30px;
-	margin-top: 40px;
-
-	width: 230px;
-	color:#3C3A89;
-	text-align: left;
-}
-
-// student work list container
-#olmorework{
-	margin-top: 30px;
-	width: 230px;
-	margin-left: 30px;
-	color: #F05123;
-	font: 12px/150% "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-
-}
-
-// student work list title style
-.ollisttitle{
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-// ordered list style for student work links
-ol.worklist{
-	margin: 0px;
-	padding-top: 0px;
-	padding-left: 16px;
-}
-
-// list item style - bolds numbers
-li.worklistitem{
-	font-weight: bold;
-}
-
-// list item span - unbolds text
-li.worklistitem span{
-	font-weight: normal;
-}
-
-// work list link styles
-a.olworklink{
-	color: #F05123;
-	text-decoration: none;
-}
-
-a.olworklink:visited{
-	color: #F05123
-}
-
-a.olworklink:hover{
-	text-decoration: underline;
-}
-
-a.olworklink:active{
-	text-decoration: underline;
-}
-*/

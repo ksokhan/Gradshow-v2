@@ -1,10 +1,10 @@
-a:4:{s:4:"root";s:20:"./less/students.less";s:8:"compiled";s:665:"#thumbnails .thumbnail.student {
+a:4:{s:4:"root";s:20:"./less/students.less";s:8:"compiled";s:673:"#thumbnails .thumbnail.student {
   position:relative;
   border:0 none !important;
 }
 #thumbnails .thumbnail.student img.hover {
   opacity:0;
-  filter:alpha(opacity=@{opacity});
+  filter:alpha(opacity=0);
   position:absolute;
   top:0;
   left:0;
@@ -21,7 +21,7 @@ a:4:{s:4:"root";s:20:"./less/students.less";s:8:"compiled";s:665:"#thumbnails .t
   -ms-transition-property:;
 }
 #thumbnails .thumbnail.student:hover img.hover {
-  opacity:1;
-  filter:alpha(opacity=@{opacity});
+  opacity:100 !important;
+  filter:alpha(opacity=100) !important;
 }
-";s:5:"files";a:2:{s:42:"/home/ksokhan/pique-dev/less/students.less";i:1332474331;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;}s:7:"updated";i:1332610154;}
+";s:5:"files";a:2:{s:42:"/home/ksokhan/pique-dev/less/students.less";i:1332616428;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;}s:7:"updated";i:1332616429;}

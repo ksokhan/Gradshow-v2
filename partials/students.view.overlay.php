@@ -27,9 +27,20 @@
 	<div id="overlay-large-image">
 		<?php
 			// if no large image, just serve the medium size then...
-			$largeImage = ($imgs['sizes'][$img]['sizes']['large']['file']) ? $imgs['sizes'][$img]['sizes']['large']['file'] : $imgs['sizes'][$img]['sizes']['medium']['file'];
+			$largeImage = ($imgs['sizes'][$img]['sizes']['large']) ? $imgs['sizes'][$img]['sizes']['large'] : $imgs['sizes'][$img]['sizes']['medium'];
+			$w = $largeImage['width'];
+			$h = $largeImage['height'];
+
+			if ($w >= $h) {
+				$h = 550 * ($h / $w);
+				$w = 550;
+			}
+			else {
+				$w = 550 * ($w / $h);
+				$h = 550;
+			}
 		?>
-		<img src="/upload/files/<?php $user = get_userdata( $id ); echo $user->user_nicename ?>/<?php echo $largeImage ?>" alt="project name">
+		<img width="<?=$w?>" height="<?=$h?>" src="/upload/files/<?php $user = get_userdata( $id ); echo $user->user_nicename ?>/<?php echo $largeImage['file'] ?>" alt="project name">
 	</div>
 
 	<!-- CAPTION -->

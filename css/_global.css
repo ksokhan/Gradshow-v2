@@ -19,7 +19,7 @@ body#white .bright-box {
   color:#3c3a89;
 }
 body#white #map { border-color:#f05123; }
-body#white .gallery .thumbnail a:hover { border-color:#f05123; }
+body#white .gallery .thumbnail:hover { border-color:#f05123; }
 body#yellow {
   background:#ffe850;
   color:#3c3a89;
@@ -41,7 +41,7 @@ body#yellow .bright-box {
   color:#3c3a89;
 }
 body#yellow #map { border-color:#3c3a89; }
-body#yellow .gallery .thumbnail a:hover { border-color:#f05123; }
+body#yellow .gallery .thumbnail:hover { border-color:#f05123; }
 body#seafoam {
   background:#cbe8db;
   color:#f05123;
@@ -63,7 +63,7 @@ body#seafoam .bright-box {
   color:#3c3a89;
 }
 body#seafoam #map { border-color:#f05123; }
-body#seafoam .gallery .thumbnail a:hover { border-color:#f05123; }
+body#seafoam .gallery .thumbnail:hover { border-color:#f05123; }
 body#red {
   background:#f05123;
   color:#cbe8db;
@@ -85,7 +85,7 @@ body#red .bright-box {
   color:#3c3a89;
 }
 body#red #map { border-color:#3c3a89; }
-body#red .gallery .thumbnail a:hover { border-color:#3c3a89; }
+body#red .gallery .thumbnail:hover { border-color:#3c3a89; }
 body#navy {
   background:#3c3a89;
   color:#ffe850;
@@ -107,7 +107,7 @@ body#navy .bright-box {
   color:#3c3a89;
 }
 body#navy #map { border-color:#ffe850; }
-body#navy .gallery .thumbnail a:hover { border-color:#f05123; }
+body#navy .gallery .thumbnail:hover { border-color:#f05123; }
 * {
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
@@ -305,6 +305,7 @@ header .timer var { font-style:normal; }
   width:100%;
   position:absolute;
   bottom:-30px;
+  white-space:nowrap;
 }
 .tooltip {
   padding:15px;

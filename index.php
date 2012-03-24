@@ -56,6 +56,7 @@
 
 		<script type="text/javascript" src="/libraries/mootools/moo.core.1.4.5.js"></script>
 		<script type="text/javascript" src="/libraries/mootools/moo.more.1.4.0.1.js"></script>
+		<script type="text/javascript" src="/libraries/mootools/LazyLoad.js"></script>
 
 		<script type="text/javascript" src="http://fast.fonts.com/jsapi/23779f16-a0da-4258-b1bd-964665cab549.js"></script>
 

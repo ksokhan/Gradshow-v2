@@ -112,10 +112,7 @@ var ModalWindow;
 			}
 
 			// Show the window, centered
-			_self.window_element.inject (document.body).fade('hide');
-			(function () {
-				_self.window_element.position ().fade('in');
-			}).delay(500);
+			_self.window_element.inject (document.body).fade('hide').position ().fade('in');
 
 			// This is the "show" method
 			this.fireEvent ('show', [ _self.window_element, _self ]);

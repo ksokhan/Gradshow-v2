@@ -150,4 +150,10 @@ window.addEvent ('domready', function () {
 		setActiveMenuItem (this);
 		showOnlyWhere ('data-medium', this.get ('data-show-only-medium'));
 	});
+
+
+	/*--------------------------------------------------------------------------
+	LazyLoad
+	--------------------------------------------------------------------------*/
+	var lazyloader = new LazyLoad();
 });

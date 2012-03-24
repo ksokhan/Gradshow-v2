@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:2909:".poster {
+a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3179:".poster {
   position:absolute;
   background:#dddddd;
   cursor:url(/images/open_hand.cur), default !important;
@@ -33,6 +33,7 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:2909:".poster 
   width:;
   height:;
 }
+#overlay-window a:hover { background-color:#cbe8db !important; }
 #overlay-window .window-contents { position:relative; }
 #overlay-window .window-contents header {
   text-align:left;
@@ -40,13 +41,19 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:2909:".poster 
   line-height:40px;
   font-size:30px;
   font-weight:bold;
+  margin-bottom:15px;
 }
 #overlay-window .window-contents header h1, #overlay-window .window-contents header h2 {
   display:inline-block;
   margin:0;
-  margin-right:20px;
+  margin-right:15px;
 }
-#overlay-window .window-contents header h2 { font-size:15px; }
+#overlay-window .window-contents header h1 { color:#3c3a89 !important; }
+#overlay-window .window-contents header h2 {
+  font-weight:normal !important;
+  font-size:15px;
+  color:#f05123 !important;
+}
 #overlay-window .window-contents #overlay-left-column, #overlay-window .window-contents #overlay-right-column {
   display:inline-block;
   vertical-align:top;
@@ -61,8 +68,8 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:2909:".poster 
   width:200px;
 }
 #overlay-window .window-contents #overlay-right-column #overlay-description {
+  color:#3c3a89 !important;
   overflow-y:auto;
-  max-height:275px;
   margin-bottom:15px;
 }
 #overlay-window .window-contents #overlay-thumbnails {
@@ -79,7 +86,7 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:2909:".poster 
 }
 #overlay-window .window-contents #overlay-thumbnails a.active {
   border:2px solid;
-  border-color:#f05123;
+  border-color:#f05123 !important;
 }
 #overlay-window .window-contents #overlay-thumbnails a.active span {
   width:91px;
@@ -99,9 +106,10 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:2909:".poster 
   top:0;
 }
 #overlay-window .button-container a.button {
+  color:#f05123 !important;
   height:40px;
   line-height:40px;
   font-size:30px;
   cursor:pointer;
 }
-";s:5:"files";a:2:{s:47:"/home/ksokhan/pique-dev/less/students.view.less";i:1332611647;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;}s:7:"updated";i:1332611648;}
+";s:5:"files";a:3:{s:47:"/home/ksokhan/pique-dev/less/students.view.less";i:1332614590;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;s:42:"/home/ksokhan/pique-dev/less/_colours.less";i:1332612231;}s:7:"updated";i:1332614591;}

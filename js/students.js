@@ -230,4 +230,9 @@ window.addEvent ('domready', function () {
 		// If a letter is active, click it
 		$$('.active-menu-item[data-show-only-letter]').fireEvent ('click');
 	});
+
+	/*--------------------------------------------------------------------------
+	LazyLoad
+	--------------------------------------------------------------------------*/
+	var lazyloader = new LazyLoad();
 });

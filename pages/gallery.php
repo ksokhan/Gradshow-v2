@@ -4,7 +4,7 @@
 			<?php
 				require('../upload/wp-load.php');
 				// we want all users
-				// so leave it blank
+				// so set it to gallery. it does all the magic
 				$id = "gallery";
 
 				require('./libraries/php/getWork.php');
@@ -20,7 +20,7 @@
 					'Package Design',
 					'Editorial Design',
 					'Information Design',
-					'Contemporary Problems in Design',
+					//'Contemporary Problems in Design',
 					'Design for Public Awareness',
 					'Self, Society and Design',
 					'Image and Influence',
@@ -85,17 +85,16 @@
 			<?php
 				foreach ($mediums as $medium)
 				{
-					$course_converted = str_replace(' ', '-', strtolower($course));
+					$searchkey = strtolower($medium);
 
 				    $count = $wpdb->get_results("
 				        SELECT COUNT(meta_key)
 				        FROM $wpdb->postmeta
-				        WHERE meta_value = '$course_converted'
-				        AND meta_key = 'course'
-
+				        WHERE meta_value = '$searchkey'
+				        AND meta_key = 'medium'
 				    ", ARRAY_A );
 				    if ($count[0]['COUNT(meta_key)'] != '0') {
-						echo '<li><a href="#" data-show-only-medium="'. strtolower($medium).'">'.$medium.'</a></li>';
+						echo '<li><a href="#" data-show-only-medium="'. $searchkey .'">'.$medium.'</a></li>';
 					}
 				}
 			?>

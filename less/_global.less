@@ -61,7 +61,7 @@ body#white {
 	#map {
 		border-color: @red;
 	}
-	.gallery .thumbnail a:hover { border-color: @red; }
+	.gallery .thumbnail:hover { border-color: @red; }
 }
 // YELLOW
 body#yellow {
@@ -93,7 +93,7 @@ body#yellow {
 	#map {
 		border-color: @navy;
 	}
-	.gallery .thumbnail a:hover { border-color: @red; }
+	.gallery .thumbnail:hover { border-color: @red; }
 }
 // SEAFOAM
 body#seafoam {
@@ -125,7 +125,7 @@ body#seafoam {
 	#map {
 		border-color: @red;
 	}
-	.gallery .thumbnail a:hover { border-color: @red; }
+	.gallery .thumbnail:hover { border-color: @red; }
 }
 // RED
 body#red {
@@ -157,7 +157,7 @@ body#red {
 	#map {
 		border-color: @navy;
 	}
-	.gallery .thumbnail a:hover { border-color: @navy; }
+	.gallery .thumbnail:hover { border-color: @navy; }
 }
 // NAVY
 body#navy {
@@ -189,7 +189,7 @@ body#navy {
 	#map {
 		border-color: @yellow;
 	}
-	.gallery .thumbnail a:hover { border-color: @red; }
+	.gallery .thumbnail:hover { border-color: @red; }
 }
 
 /*--------------------------------------------------------------------------
@@ -471,6 +471,7 @@ Thumbnail Collections
 				width: 100%;
 				position: absolute;
 				bottom: -30px;
+				white-space: nowrap
 			}
 		}
 	}

@@ -38,8 +38,8 @@ if ($user->last_name != "") {
 echo '
     <div class="thumbnail student" data-first-name="'.$user->first_name.'" data-last-name="'.$user->last_name.'" title="'.$user->first_name.' '.$user->last_name.'">
         <a href="/students/view/options/id/' . $user->id . '">
-            <img src="images/student-image-thumbnails/' . ucwords(strtolower($user->first_name)) . "_" . ucwords(strtolower($user->last_name)) . '01.jpg" class="">
-            <img src="images/student-image-thumbnails/' . ucwords(strtolower($user->first_name)) . "_" . ucwords(strtolower($user->last_name)) . '02.jpg" class="hover">
+            <img data-src="/images/student-image-thumbnails/' . ucwords(strtolower($user->first_name)) . "_" . ucwords(strtolower($user->last_name)) . '01.jpg" class="">
+            <img data-src="/images/student-image-thumbnails/' . ucwords(strtolower($user->first_name)) . "_" . ucwords(strtolower($user->last_name)) . '02.jpg" class="hover">
         </a>
 
         <div class="caption">
