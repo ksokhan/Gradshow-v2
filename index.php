@@ -137,4 +137,19 @@
 			<script type="text/javascript" src="https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&amp;include_rts=false&amp;screen_name=ysdn12&amp;count=1&amp;callback=twitterCallback2"></script>
 		</footer>
 	</body>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30335821-1']);
+  _gaq.push(['_setDomainName', 'pique2012.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </html>

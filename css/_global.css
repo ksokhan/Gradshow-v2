@@ -73,6 +73,7 @@ body#yellow #map { border-color:#3c3a89; }
 body#yellow .gallery .thumbnail:hover { border-color:#f05123; }
 body#yellow #back-button { color:#f05123; }
 body#yellow #back-button:hover { color:#3c3a89; }
+body#yellow .timer { color:#3c3a89; }
 body#seafoam {
   background:#cbe8db;
   color:#3c3a89;
@@ -111,6 +112,7 @@ body#seafoam #map { border-color:#f05123; }
 body#seafoam .gallery .thumbnail:hover { border-color:#f05123; }
 body#seafoam #back-button { color:#3c3a89; }
 body#seafoam #back-button:hover { color:#f05123; }
+body#seafoam .timer { color:#f05123; }
 body#red {
   background:#f05123;
   color:#ffe850;
@@ -149,6 +151,7 @@ body#red #map { border-color:#3c3a89; }
 body#red .gallery .thumbnail:hover { border-color:#3c3a89; }
 body#red #back-button { color:#ffe850; }
 body#red #back-button:hover { color:#3c3a89; }
+body#red .timer { color:#cbe8db; }
 body#navy {
   background:#3c3a89;
   color:#cbe8db;
@@ -187,6 +190,7 @@ body#navy #map { border-color:#ffe850; }
 body#navy .gallery .thumbnail:hover { border-color:#f05123; }
 body#navy #back-button { color:#cbe8db; }
 body#navy #back-button:hover { color:#3c3a89; }
+body#navy .timer { color:#ffe850; }
 * {
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
