@@ -1,4 +1,18 @@
 window.addEvent ('domready', function () {
+	var loadVisible = function () {
+		$$('.thumbnail').each (function (element, index) {
+			if (element.getStyle ('display') == 'inline-block') {
+				element.getElements('img').each (function (image, index) {
+					image.set('src', image.get('data-src'));
+					if (!image.hasClass ('hover')) image.fade(1);
+				});
+			}
+		});
+	};
+
+	/*--------------------------------------------------------------------------
+	Set Active Item
+	--------------------------------------------------------------------------*/
 	// This one lets there be more than one active menu item on the page
 	var setActiveMenuItem = function (element) {
 		element.getParent('ul').getElements('.active-menu-item').removeClass('active-menu-item');
@@ -70,6 +84,9 @@ window.addEvent ('domready', function () {
 
 		// How show the ones we want...
 		$$('.thumbnail[' + attribute + '^="' + value.toUpperCase() + '"]').setStyle ('display', 'inline-block');
+
+		// My own lazy load thing
+		loadVisible ();
 	};
 
 	/*--------------------------------------------------------------------------
@@ -96,6 +113,9 @@ window.addEvent ('domready', function () {
 				thumbnail.inject(container);
 			});
 		});
+
+		// My own lazy load thing
+		loadVisible ();
 	};
 
 	/*--------------------------------------------------------------------------

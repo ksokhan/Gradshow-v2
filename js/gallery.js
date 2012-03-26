@@ -1,4 +1,17 @@
 window.addEvent ('domready', function () {
+	var loadVisible = function () {
+		$$('.thumbnail').each (function (element, index) {
+			if (element.getStyle ('display') == 'inline-block') {
+				element.getElements('img').each (function (image, index) {
+					image.set('src', image.get('data-src')).fade(1);
+				});
+			}
+		});
+	};
+
+	/*--------------------------------------------------------------------------
+	Set Active Menu Item
+	--------------------------------------------------------------------------*/
 	var setActiveMenuItem = function (element) {
 		$$('.active-menu-item').removeClass ('active-menu-item');
 		element.addClass ('active-menu-item');
@@ -35,20 +48,19 @@ window.addEvent ('domready', function () {
 	// Filter by...
 	var showOnlyWhere = function (attribute, value) {
 		// Sort first...
-		if (attribute == 'data-course')
+		if (attribute == 'data-course') {
 			sortBy(courses);
-		else
+		}
+		else {
 			sortBy(mediums);
+		}
 
 		// Show all?
 		if (value == "all") {
-			// Just show everything
-			$$('.thumbnail').setStyle ('display', 'inline-block');
-
 			return;
 		}
 
-		// Clear all category cards
+		// Clear all category cards (sortBy made its own...)
 		$$('.category_card').destroy();
 
 		// Now hide everything...
@@ -58,10 +70,13 @@ window.addEvent ('domready', function () {
 		var container = $('thumbnails');
 
 		// Create a "name card" to denote where each new section begins
-		Elements.from ('<div class="thumbnail category_card"><span>' + value + '</span></div>').inject(container, 'top');
+		//Elements.from ('<div class="thumbnail category_card"><span>' + value + '</span></div>')[0].inject(container, 'top');
 
 		// How show the ones we want...
 		$$('.thumbnail[' + attribute + '="' + value + '"]').setStyle ('display', 'inline-block');
+
+		// My own lazyLoad
+		loadVisible();
 	};
 
 	/*--------------------------------------------------------------------------
@@ -69,6 +84,7 @@ window.addEvent ('domready', function () {
 	--------------------------------------------------------------------------*/
 	// Sort by...
 	var sortBy = function (folders) {
+
 		// Get the container for the thumbnails
 		var container = $('thumbnails');
 
@@ -81,32 +97,32 @@ window.addEvent ('domready', function () {
 		// For each course in the list...
 		Object.each (folders, function (thumbnails, folder_name) {
 			// Create a "name card" to denote where each new section begins
-			Elements.from ('<div class="thumbnail category_card"><span>' + folder_name + '</span></div>').inject(container);
+			Elements.from('<div class="thumbnail category_card"><span>' + (folder_name || 'unclassified') + '</span></div>')[0].inject(container);
 
 			// Spit out its thumbnails
 			thumbnails.each (function (thumbnail, index) {
 				thumbnail.inject(container);
 			});
 		});
+
+		// My own lazyLoad
+		loadVisible();
 	};
 
 	/*--------------------------------------------------------------------------
 	By Course
 	--------------------------------------------------------------------------*/
-	// Make little folders...
-	var courses = {
-		'Book Design': [],
-		'Corporate ID': [],
-		'Communication Design': [],
-		'Design Workshop': [],
-		'Editorial Design': [],
-		'Independent Study': [],
-		'Information Design': [],
-		'Interactivity Design': [],
-		'Package Design': [],
-		'Time-Based Design': [],
-		'Typography': []
-	};
+	// Create a "folder" for each course
+	var course_names = [],
+	    courses = {};
+	$$('.thumbnail[data-course]').each(function (project, index) {
+		var course_name = project.get('data-course');
+		if (course_names.indexOf(course_name) < 0) course_names.push(course_name);
+	});
+	course_names.sort().each(function (course_name) {
+		courses[course_name] = [];
+	});
+
 	// Stuff the folders
 	Object.each (courses, function (arr, course_name) {
 		courses[course_name] = $$('.thumbnail[data-course="' + course_name + '"]');
@@ -127,13 +143,17 @@ window.addEvent ('domready', function () {
 	/*--------------------------------------------------------------------------
 	By Medium
 	--------------------------------------------------------------------------*/
-	// Make little folders...
-	var mediums = {
-		'Interactive': [],
-		'Package': [],
-		'Print': [],
-		'Video': []
-	};
+	// Create a "folder" for each medium
+	var medium_names = [],
+	    mediums = {};
+	$$('.thumbnail[data-medium]').each(function (project, index) {
+		var medium_name = project.get('data-medium');
+		if (medium_names.indexOf(medium_name) < 0) medium_names.push(medium_name);
+	});
+	medium_names.sort().each(function (medium_name) {
+		mediums[medium_name] = [];
+	});
+
 	// Stuff the folders
 	Object.each (mediums, function (arr, medium_name) {
 		mediums[medium_name] = $$('.thumbnail[data-medium="' + medium_name + '"]');

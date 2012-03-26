@@ -9,7 +9,6 @@
 
 				require('./libraries/php/getWork.php');
 
-
 				$courses = array (
 					'Typography',
 					'Typeface Design',
@@ -33,6 +32,8 @@
 					'Professional Aspects of Design',
 					'Independent Studies'
 				);
+				sort($courses);
+
 				$mediums = array (
 					'3D',
 					'Book',
@@ -44,6 +45,7 @@
 					'Identity',
 					'Information'
 				);
+				sort($mediums);
 
 				echo drawAllImages();
 
@@ -55,19 +57,19 @@
 		<h1>FRIENDS + FAMILY</h1>
 		<p>
 			APRIL 15<br>
-			6:30PM - 10:00PM
+			6:30PM &ndash; 10:00PM
 		</p>
 
 		<h1>INDUSTRY NIGHT</h1>
 		<p>
 			APRIL 16<br>
-			6:30 - 10:00PM
+			6:30PM &ndash; 10:00PM
 		</p>
 
 		<h1>DOORS OPEN</h1>
 		<p>
 			APRIL 16 &amp; 17<br>
-			10:00AM &mdash; 4:00PM
+			10:00AM &ndash; 4:00PM
 		</p>
 	</section>
 

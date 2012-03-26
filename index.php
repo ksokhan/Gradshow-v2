@@ -23,7 +23,7 @@
 	}
 	// ================================
 
-	$page_name    = !empty ($_GET['page_name']) ? str_replace ('/', '.', trim ($_GET['page_name'], '/')) : 'home';
+	$page_name    = (!empty ($_GET['page_name']) && $_GET['page_name'] !== "/") ? str_replace ('/', '.', trim ($_GET['page_name'], '/')) : 'home';
 	$page_options = array ();
 
 	if (!empty ($_GET['options']))
@@ -74,7 +74,7 @@
 	?>
 	<body id="<?=$colour_scheme?>">
 		<header>
-			<h1 id="logo"><a href="#">York / Sheridan Design Pique Grad Show</a></h1>
+			<h1 id="logo"><a href="/">York / Sheridan Design Pique Grad Show</a></h1>
 
 			<div id="days-and-hours" class="timer">
 				<div id="days-left">

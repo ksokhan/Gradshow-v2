@@ -27,7 +27,7 @@
 	<div id="overlay-large-image">
 		<?php
 			// if no large image, just serve the medium size then...
-			$largeImage = ($imgs['sizes'][$img]['sizes']['large']) ? $imgs['sizes'][$img]['sizes']['large'] : $imgs['sizes'][$img]['sizes']['medium'];
+			$largeImage = !empty ($imgs['sizes'][$img]['sizes']['large']) ? $imgs['sizes'][$img]['sizes']['large'] : $imgs['sizes'][$img]['sizes']['medium'];
 			$w = $largeImage['width'];
 			$h = $largeImage['height'];
 

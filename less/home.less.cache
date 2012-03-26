@@ -1,0 +1,11 @@
+a:4:{s:4:"root";s:16:"./less/home.less";s:8:"compiled";s:159:".video {
+  margin:30px 0 20px;
+  text-align:center;
+}
+.video iframe { margin:0 auto 0; }
+#info {
+  text-align:center;
+  font-size:1.2em;
+  line-height:160%;
+}
+";s:5:"files";a:1:{s:38:"/home/ksokhan/pique-dev/less/home.less";i:1332716286;}s:7:"updated";i:1332716288;}

@@ -8,7 +8,7 @@ The Typeface
 }
 .normal-type() {
 	font-size: 13px;
-	line-height: 17px;
+	line-height: 18px;
 }
 .medium-type() {
 	font-size: 15px;
@@ -29,8 +29,10 @@ body#white {
 
 	a {
 		color: @navy;
-		&:hover { background: @seafoam; }
+		&:hover { color: @red }
+		&.active-menu-item { color: @red; border-bottom-color: @red }
 	}
+	#main-navigation .current_page a { color: @red; border-bottom-color: @red }
 	h1 {
 		color: @red;
 	}
@@ -45,6 +47,7 @@ body#white {
 	}
 	.thumbnail {
 		border-color: @navy;
+		color: @navy;
 	}
 	.category_card {
 		background: @red;
@@ -62,21 +65,32 @@ body#white {
 		border-color: @red;
 	}
 	.gallery .thumbnail:hover { border-color: @red; }
+	#back-button {
+		color: @navy;
+		&:hover { color: @red }
+	}
 }
 // YELLOW
 body#yellow {
 	background: @yellow;
-	color: @navy;
+	color: @red;
 
 	a {
 		color: @red;
-		&:hover { background: @yellow - #111; }
+		&:hover { color: @navy }
+		&.active-menu-item { color: @navy; border-bottom-color: @navy }
+	}
+	#main-navigation .current_page a { color: @navy; border-bottom-color: @navy }
+
+	h1 {
+		color: @navy;
 	}
 	#logo a {
 		background: url(../images/wordmark.navy.png);
 	}
 	.thumbnail {
 		border-color: @navy;
+		color: @red;
 	}
 	.category_card {
 		background: @red;
@@ -94,21 +108,32 @@ body#yellow {
 		border-color: @navy;
 	}
 	.gallery .thumbnail:hover { border-color: @red; }
+	#back-button {
+		color: @red;
+		&:hover { color: @navy }
+	}
 }
 // SEAFOAM
 body#seafoam {
 	background: @seafoam;
-	color: @red;
+	color: @navy;
 
 	a {
 		color: @navy;
-		&:hover { background: @seafoam - #111; }
+		&:hover { color: @red }
+		&.active-menu-item { color: @red; border-bottom-color: @red }
+	}
+	#main-navigation .current_page a { color: @red; border-bottom-color: @red }
+
+	h1 {
+		color: @red;
 	}
 	#logo a {
 		background: url(../images/wordmark.red.png);
 	}
 	.thumbnail {
 		border-color: @red;
+		color: @navy;
 	}
 	.category_card {
 		background: @red;
@@ -126,21 +151,32 @@ body#seafoam {
 		border-color: @red;
 	}
 	.gallery .thumbnail:hover { border-color: @red; }
+	#back-button {
+		color: @navy;
+		&:hover { color: @red }
+	}
 }
 // RED
 body#red {
 	background: @red;
-	color: @seafoam;
+	color: @yellow;
 
 	a {
 		color: @yellow;
-		&:hover { background: @red - #111; }
+		&:hover { color: @seafoam }
+		&.active-menu-item { color: @seafoam; border-bottom-color: @seafoam }
+	}
+	#main-navigation .current_page a { color: @seafoam; border-bottom-color: @seafoam }
+
+	h1 {
+		color: @seafoam;
 	}
 	#logo a {
 		background: url(../images/wordmark.seafoam.png);
 	}
 	.thumbnail {
 		border-color: @seafoam;
+		color: @yellow;
 	}
 	.category_card {
 		background: @yellow;
@@ -158,21 +194,32 @@ body#red {
 		border-color: @navy;
 	}
 	.gallery .thumbnail:hover { border-color: @navy; }
+	#back-button {
+		color: @yellow;
+		&:hover { color: @navy }
+	}
 }
 // NAVY
 body#navy {
 	background: @navy;
-	color: @yellow;
+	color: @seafoam;
 
 	a {
 		color: @seafoam;
-		&:hover { background: @navy - #111; }
+		&:hover { color: @yellow }
+		&.active-menu-item { color: @yellow; border-bottom-color: @yellow }
+	}
+	#main-navigation .current_page a { color: @yellow; border-bottom-color: @yellow }
+
+	h1 {
+		color: @yellow;
 	}
 	#logo a {
 		background: url(../images/wordmark.yellow.png);
 	}
 	.thumbnail {
 		border-color: @yellow;
+		color: @seafoam;
 	}
 	.category_card {
 		background: @yellow;
@@ -190,6 +237,10 @@ body#navy {
 		border-color: @yellow;
 	}
 	.gallery .thumbnail:hover { border-color: @red; }
+	#back-button {
+		color: @seafoam;
+		&:hover { color: @navy }
+	}
 }
 
 /*--------------------------------------------------------------------------
@@ -218,10 +269,19 @@ ul {
 }
 a {
 	text-transform: none;
+	border-bottom: solid 2px transparent;
+	text-decoration: none;
+
+	&.underlined { text-decoration: underline; }
+	&:hover,
+	&:active,
+	&:focus {
+		cursor: pointer !important;
+	}
 }
 h1, h2 {
-	margin-bottom: 20px;
-	margin-top: 10px;
+	margin-bottom: 6px;
+	margin-top: 15px;
 }
 
 /*--------------------------------------------------------------------------
@@ -276,16 +336,17 @@ Layout
 			padding: 0 30px;
 		}
 		.sidebar {
-			top: 177px;
-			position: fixed;
-			width: 14%;
+			top: 0;
+			position: absolute;
+			width: 15%;
+			.transitions(top, 1s, ease-in, 0);
 
 			&#left {
-				left: 30px;
+				left: 0;
 				max-width: 250px;
 			}
 			&#right {
-				right: 30px;
+				right: 0;
 				text-align: right;
 				max-width: 250px;
 			}
@@ -323,9 +384,10 @@ Navigation
 			a {
 				font-weight: bold;
 				text-transform: uppercase;
+				text-decoration: none;
 			}
 			&.current_page a {
-				text-decoration: none;
+				border-bottom: solid 2px @navy;
 			}
 		}
 	}
@@ -343,7 +405,7 @@ Footer
 	right: 0;
 	height: @footer-height;
 	background: white;
-	z-index: 10000000000;
+	z-index: 999;
 
 	a {
 		color: @navy !important;
@@ -485,6 +547,7 @@ Thumbnail Collections
 .active-menu-item {
 	font-weight: bold;
 	text-decoration: none;
+	border-bottom-width: 2px;
 }
 #letters {
 	@columns: 4;

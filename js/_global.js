@@ -39,6 +39,16 @@ window.addEvent ('domready', function () {
 	// var stored_bg = localStorage.getItem ('pique-bg-colour') || 'set-bg-white';
 	var stored_bg = Cookie.read ('pique-bg-colour') || 'set-bg-white';
 	$(stored_bg).fireEvent ('click');
+
+	/*--------------------------------------------------------------------------
+	Pinned Sidebars
+	--------------------------------------------------------------------------*/
+	window.addEvent ('scroll', function () {
+		var scroll_distance = window.getScroll().y;
+		$$('.sidebar').setStyles ({
+			'top': (scroll_distance - 177 > 0) ? scroll_distance - 177 + 30 : 0
+		});
+	});
 });
 
 

@@ -121,6 +121,7 @@ var ModalWindow;
 		'dismiss': function () {
 			var _self = this;
 
+
 			// It's not technically shading while it's fading out...
 			_self.window_element.set('data-shading', '').fade ('out');
 

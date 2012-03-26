@@ -3,6 +3,7 @@
   width:150px;
   height:150px;
 }
+#thumbnails.gallery .thumbnail:hover { border-color:transparent !important; }
 #thumbnails.gallery .thumbnail a {
   border:solid 7px transparent;
   display:block;
