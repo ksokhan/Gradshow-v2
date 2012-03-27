@@ -109,7 +109,7 @@ window.addEvent ('domready', function () {
 								}
 							],
 							'onShow': function (window_element) {
-								$('overlay-thumbnails').addEvent('click:relay(a)', enlarge_thumbnail)[0].fireEvent('click');
+								$$('#overlay-thumbnails a').addEvent('click', enlarge_thumbnail)[0].fireEvent('click');
 								$$('#overlay-large-image img').fireEvent ('load');
 							}
 						});
