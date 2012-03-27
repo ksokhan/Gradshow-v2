@@ -7,50 +7,19 @@ window.addEvent ('domready', function () {
 		// randomize the divs
 		divs.sort(function() { return 0.5 - Math.random() });
 
-		// Measurments and crap
-		var h_wiggle = 50;
-		var container_size = container.getSize();
-		var x_increment = container_size.x / (divs.length + 1);
-		var i = 1;
-
-		// Position them
-		divs.each (function (element, index) {
-			var element_size = element.getSize();
-			var zindex = index;
-
-			var x = x_increment * i++ - (element_size.x / 2);
-			x = Number.random (x - h_wiggle, x + h_wiggle);
-			var y = Number.random(element_size.y / 2, container_size.y - element_size.y);
-
-			element.setStyles ({
-				'left': x,
-				'top': y,
-				'z-index': zindex
-			});
-		});
-	};
-
-	var randomlyStack2 = function (container, divs) {
-		// randomize the divs
-		divs.sort(function() { return 0.5 - Math.random() });
-
-		var h_wiggle = 0;
 		var h_spacing = 125;
 		var clump_width = h_spacing * (divs.length + 1);
 		var clump_height = 300;
 		var container_size = container.getSize();
 		var h_start = (container_size.x - clump_width) / 2;
-		var v_min   = (container_size.y - clump_height) / 2;
 		var i = 1;
 
 		// Position them
 		divs.each (function (element, index) {
 			var element_size = element.getSize();
-			var zindex = i;
-
+			var zindex = Number.random(1, divs.length + 1);
 			var x = h_start + (h_spacing * i) - (element_size.x / 2);
-			//x += Number.random (h_wiggle * -1, h_wiggle);
-			var y = (v_min + (element_size.y / 2) + Number.random(0, clump_height - element_size.y)) - (element_size.y / 2);
+			var y = Number.random (0, container_size.y - element_size.y);
 
 			element.setStyles ({
 				'left': x,
@@ -63,8 +32,8 @@ window.addEvent ('domready', function () {
 	};
 
 	window.addEvent ('load', function () {
-		randomlyStack2($('content'), posters);
-	});
+		randomlyStack($('content'), posters);
+		});
 
 	/*--------------------------------------------------------------------------
 	Make 'Em Draggable
@@ -96,6 +65,9 @@ window.addEvent ('domready', function () {
 	var enlarge_thumbnail = function (e) {
 		if (e) e.preventDefault();
 		var _self = this;
+
+		// No clicking on already active thumbs
+		if (this.hasClass ('active')) return false;
 
 		// Transfer link properties to the enlarged image
 		var img = $$('#overlay-large-image img')[0];
@@ -137,7 +109,7 @@ window.addEvent ('domready', function () {
 								}
 							],
 							'onShow': function (window_element) {
-								$$('#overlay-thumbnails a').addEvent('click', enlarge_thumbnail)[0].fireEvent('click');
+								$('overlay-thumbnails').addEvent('click:relay(a)', enlarge_thumbnail)[0].fireEvent('click');
 								$$('#overlay-large-image img').fireEvent ('load');
 							}
 						});
@@ -146,5 +118,10 @@ window.addEvent ('domready', function () {
 				return false;
 			}).filter('.active').fireEvent ('click');
 		}
+	});
+
+	// Re-position the overlay on window resize
+	window.addEvent('resize', function () {
+		$$('#overlay-window').position();
 	});
 });

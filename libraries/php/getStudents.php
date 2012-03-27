@@ -33,12 +33,12 @@ $user = get_userdata( $iUserID );
     To echo a property simply call it with $user->name_of_the_column.
     In this example I print the first and last name.
 */
-if ($user->last_name != "") {
+if ($user->last_name != "" && $user->id != 77) {
 
 echo '
     <div class="thumbnail student" data-first-name="'.$user->first_name.'" data-last-name="'.$user->last_name.'" title="'.$user->first_name.' '.$user->last_name.'">
         <a href="/students/view/options/id/' . $user->id . '">
-            <img data-src="/images/student-image-thumbnails/' . ucwords(strtolower($user->first_name)) . "_" . ucwords(strtolower($user->last_name)) . '01.jpg" class="">
+            <img data-src="/images/student-image-thumbnails/' . str_replace(' ', '_', ucwords(strtolower($user->first_name))) . "_" . str_replace(' ', '_', ucwords(strtolower($user->last_name))) . '01.jpg" class="">
             <img data-src="/images/student-image-thumbnails/' . ucwords(strtolower($user->first_name)) . "_" . ucwords(strtolower($user->last_name)) . '02.jpg" class="hover">
         </a>
 
