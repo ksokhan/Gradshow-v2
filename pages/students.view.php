@@ -2,17 +2,25 @@
 
 
 	<section id="content">
-
 		<?php
-		require( '../upload/wp-load.php' );
+			require( '../upload/wp-load.php' );
 
-		$id = $page_options['id'];
-		$user = get_userdata( $id );
+			$id = $page_options['id'];
+			$user = get_userdata( $id );
 
-	  	require( './libraries/php/getWork.php' );
+		  	require( './libraries/php/getWork.php' );
 
-	  	echo drawUserImages();
+		  	echo drawUserImages();
 
+		  	if (!empty ($user->description))
+		  	{
+		  		echo '
+		  			<div id="bio">
+						'.$user->description.'
+						<a href="#" id="close-bio">&times;</a>
+					</div>
+		  		';
+		  	}
 		?>
 	</section>
 

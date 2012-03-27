@@ -33,7 +33,7 @@ window.addEvent ('domready', function () {
 
 	window.addEvent ('load', function () {
 		randomlyStack($('content'), posters);
-		});
+	});
 
 	/*--------------------------------------------------------------------------
 	Make 'Em Draggable
@@ -56,6 +56,17 @@ window.addEvent ('domready', function () {
 				el.getSiblings().removeClass('dragging');
 				el.removeClass('draggedItem');
 			}
+		});
+	});
+
+	/*--------------------------------------------------------------------------
+	The Bio
+	--------------------------------------------------------------------------*/
+	$$('#bio').position();
+	$$('#close-bio').addEvent('click', function () {
+		var box = this.getParent();
+		box.get('tween').start('opacity',0).chain(function () {
+			box.destroy();
 		});
 	});
 

@@ -16,7 +16,24 @@
   text-transform:uppercase;
 }
 #back-button:hover { border-bottom-width:2px; }
-#content { min-height:400px; }
+#content {
+  min-height:400px;
+  position:relative;
+}
+#bio {
+  width:400px;
+  position:absolute;
+  font-size:30px;
+  line-height:35px;
+  padding:20px;
+  font-weight:bold;
+  z-index:100;
+}
+#bio #close-bio {
+  position:absolute;
+  top:0px;
+  right:10px;
+}
 #page-wrapper #right.studentProfile { text-align:left; }
 #page-wrapper #right.studentProfile h1, #page-wrapper #right.studentProfile h2, #page-wrapper #right.studentProfile p, #page-wrapper #right.studentProfile a { text-align:left; }
 #page-wrapper #right.studentProfile h2 {

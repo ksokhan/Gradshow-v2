@@ -50,7 +50,9 @@
 
 	<!-- THUMBNAILS -->
 	<div id="overlay-thumbnails">
-		<?php echo overlayProjectThumbs($img) ?>
+		<?php
+			echo overlayProjectThumbs($img);
+		?>
 	</div>
 </div>
 

@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3718:".poster {
+a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3941:".poster {
   position:absolute;
   cursor:url(/images/open_hand.cur), default !important;
 }
@@ -16,7 +16,24 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3718:".poster 
   text-transform:uppercase;
 }
 #back-button:hover { border-bottom-width:2px; }
-#content { min-height:400px; }
+#content {
+  min-height:400px;
+  position:relative;
+}
+#bio {
+  width:400px;
+  position:absolute;
+  font-size:30px;
+  line-height:35px;
+  padding:20px;
+  font-weight:bold;
+  z-index:100;
+}
+#bio #close-bio {
+  position:absolute;
+  top:0px;
+  right:10px;
+}
 #page-wrapper #right.studentProfile { text-align:left; }
 #page-wrapper #right.studentProfile h1, #page-wrapper #right.studentProfile h2, #page-wrapper #right.studentProfile p, #page-wrapper #right.studentProfile a { text-align:left; }
 #page-wrapper #right.studentProfile h2 {
@@ -134,4 +151,4 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3718:".poster 
   cursor:pointer;
 }
 #overlay-window .button-container a.button:hover { background:none !important; }
-";s:5:"files";a:3:{s:47:"/home/ksokhan/pique-dev/less/students.view.less";i:1332881631;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;s:42:"/home/ksokhan/pique-dev/less/_colours.less";i:1332612231;}s:7:"updated";i:1332882590;}
+";s:5:"files";a:3:{s:47:"/home/ksokhan/pique-dev/less/students.view.less";i:1332888144;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;s:42:"/home/ksokhan/pique-dev/less/_colours.less";i:1332612231;}s:7:"updated";i:1332888145;}
