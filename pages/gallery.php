@@ -2,12 +2,12 @@
 	<section id="content">
 		<div id="thumbnails" class="gallery">
 			<?php
-				require('../upload/wp-load.php');
+				include('./upload/wp-load.php');
 				// we want all users
 				// so set it to gallery. it does all the magic
 				$id = "gallery";
 
-				require('./libraries/php/getWork.php');
+				include('./libraries/php/getWork.php');
 
 				$courses = array (
 					'Typography',

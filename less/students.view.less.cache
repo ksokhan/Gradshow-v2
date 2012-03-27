@@ -1,6 +1,5 @@
-a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3740:".poster {
+a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3718:".poster {
   position:absolute;
-  background:#dddddd;
   cursor:url(/images/open_hand.cur), default !important;
 }
 .poster.draggedItem { cursor:url(/images/closed_hand.cur), default !important; }
@@ -135,4 +134,4 @@ a:4:{s:4:"root";s:25:"./less/students.view.less";s:8:"compiled";s:3740:".poster 
   cursor:pointer;
 }
 #overlay-window .button-container a.button:hover { background:none !important; }
-";s:5:"files";a:3:{s:47:"/home/ksokhan/pique-dev/less/students.view.less";i:1332719723;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;s:42:"/home/ksokhan/pique-dev/less/_colours.less";i:1332612231;}s:7:"updated";i:1332719725;}
+";s:5:"files";a:3:{s:47:"/home/ksokhan/pique-dev/less/students.view.less";i:1332881631;s:41:"/home/ksokhan/pique-dev/less/_mixins.less";i:1332610150;s:42:"/home/ksokhan/pique-dev/less/_colours.less";i:1332612231;}s:7:"updated";i:1332882590;}

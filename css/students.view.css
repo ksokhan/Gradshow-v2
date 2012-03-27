@@ -1,6 +1,5 @@
 .poster {
   position:absolute;
-  background:#dddddd;
   cursor:url(/images/open_hand.cur), default !important;
 }
 .poster.draggedItem { cursor:url(/images/closed_hand.cur), default !important; }
