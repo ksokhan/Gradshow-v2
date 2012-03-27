@@ -69,7 +69,7 @@ function drawAllImages() {
 			$course = trim( str_replace($course_replace, '', $imgs['meta'][$index]['course'][0]) , '-');
 
 			$o .= '
-				<div class="thumbnail" data-course="'. $course .'" data-medium="'. $imgs['meta'][$index]['medium'][0] .'" title="' . $imgs['data'][$index]['post_title'] . '&lt;br&gt;' . $imgs['author'][$index]->first_name . ' ' . $imgs['author'][$index]->last_name . '">
+				<div class="thumbnail" data-course="'. $course .'" data-medium="'. $imgs['meta'][$index]['category'][0] .'" title="' . $imgs['data'][$index]['post_title'] . '&lt;br&gt;' . $imgs['author'][$index]->first_name . ' ' . $imgs['author'][$index]->last_name . '">
 					<a href="/students/view/options/action/overlay/id/' . $imgs['author'][$index]->ID . '/image/' . $imgs['data'][$index]['ID'] . '"><img data-src="/upload/files/' . $imgs['author'][$index]->user_nicename . '/' . $img_thumb['file'] . '"></a>
 				</div>
 			';

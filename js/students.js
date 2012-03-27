@@ -105,13 +105,16 @@ window.addEvent ('domready', function () {
 
 		// For each course in the list...
 		Object.each (folders, function (thumbnails, folder_name) {
-			// Create a "name card" to denote where each new section begins
-			Elements.from ('<div class="thumbnail category_card"><span>' + folder_name + '</span></div>').inject(container);
+			if (thumbnails.length > 0)
+			{
+				// Create a "name card" to denote where each new section begins
+				Elements.from ('<div class="thumbnail category_card"><span>' + folder_name + '</span></div>').inject(container);
 
-			// Spit out its thumbnails
-			thumbnails.each (function (thumbnail, index) {
-				thumbnail.inject(container);
-			});
+				// Spit out its thumbnails
+				thumbnails.each (function (thumbnail, index) {
+					thumbnail.inject(container);
+				});
+			}
 		});
 
 		// My own lazy load thing
