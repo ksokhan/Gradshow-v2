@@ -6,13 +6,13 @@
 			<h2>FRIENDS + FAMILY</h2>
 			<p>
 				APRIL 15<br>
-				6:30PM &ndash; 10:00PM
+				6:00PM &ndash; 10:00PM
 			</p>
 
 			<h2>INDUSTRY NIGHT</h2>
 			<p>
 				APRIL 16<br>
-				6:30PM &ndash; 10:00PM
+				6:00PM &ndash; 10:00PM
 			</p>
 
 			<h2>DOORS OPEN</h2>

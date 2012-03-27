@@ -7,5 +7,5 @@
 		<strong>Fermenting Cellar,
 		Distillery District, Toronto</strong>
 	</div>
-	<p><strong>April 15 &#8211; 17, 2012</strong></p>
+	<p><strong>April 15 &ndash; 17, 2012</strong></p>
 </div>
