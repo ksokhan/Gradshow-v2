@@ -176,7 +176,7 @@ window.addEvent ('domready', function () {
 	--------------------------------------------------------------------------*/
 	var parseURLForFilters = function () {
 		var url_cmd = window.location.toString().match(/#(medium|course)--(.*)$/);
-		if (url_cmd[1] && url_cmd[2]) {
+		if (url_cmd && url_cmd.length > 1) {
 			$$('[data-show-only-' + url_cmd[1] + '="' + url_cmd[2] + '"]').fireEvent('click');
 		}
 	};
