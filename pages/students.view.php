@@ -28,19 +28,19 @@
 		<h1>FRIENDS + FAMILY</h1>
 		<p>
 			APRIL 15<br>
-			6:30PM &ndash; 10:00PM
+			6:00PM &ndash; 10:00PM
 		</p>
 
 		<h1>INDUSTRY NIGHT</h1>
 		<p>
 			APRIL 16<br>
-			6:30PM &ndash; 10:00PM
+			6:00PM &ndash; 10:00PM
 		</p>
 
 		<h1>DOORS OPEN</h1>
 		<p>
 			APRIL 16 &amp; 17<br>
-			10:00AM &ndash; 4:00PM
+			10:00AM &ndash; 5:00PM
 		</p>
 
 		<p>
@@ -51,7 +51,7 @@
 
 	<section id="right" class="sidebar studentProfile">
 		<h1><?php echo $user->first_name . " " . $user->last_name ?></h1>
-  		<img class="photo" src="/images/student-image-profiles/<?php echo str_replace(' ', '_', $user->first_name) . "_" . str_replace(' ', '_', $user->last_name) ?>02.jpg">
+  		<img class="photo" src="/images/student-image-profiles/<?php echo ucfirst(strtolower(str_replace(' ', '_', $user->first_name))) . "_" . ucfirst(strtolower(str_replace(' ', '_', $user->last_name))) ?>02.jpg">
 
  		<h2>Contact</h2>
  		<p><a href="mailto:<?php echo $user->user_email ?>" "email me"><?php echo $user->user_email ?></a></p>

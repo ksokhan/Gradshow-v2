@@ -18,7 +18,7 @@
 			<h2>DOORS OPEN</h2>
 			<p>
 				APRIL 16 &amp; 17<br>
-				10:00AM &ndash; 4:00PM
+				10:00AM &ndash; 5:00PM
 			</p>
 
 			<h1>Location</h1>
