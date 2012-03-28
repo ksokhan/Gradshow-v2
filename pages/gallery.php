@@ -96,7 +96,7 @@
 				        AND meta_key = 'medium'
 				    ", ARRAY_A );
 				    if ($count[0]['COUNT(meta_key)'] != '0') {
-						echo '<li><a href="#" data-show-only-medium="'. $searchkey .'">'.$medium.'</a></li>';
+						echo '<li><a href="#medium--'.$searchkey.'" data-show-only-medium="'. $searchkey .'">'.$medium.'</a></li>';
 					}
 				}
 			?>
@@ -120,7 +120,7 @@
 					//print_r($count);
 					//
 				    if ($count[0]['COUNT(meta_key)'] != '0') {
-				    	echo '<li><a href="#" data-show-only-course="'. $course_converted .'">'.$course.'</a></li>';
+				    	echo '<li><a href="#course--'.$course_converted.'" data-show-only-course="'. $course_converted .'">'.$course.'</a></li>';
 				    }
 
 				}

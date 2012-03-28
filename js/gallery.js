@@ -37,7 +37,7 @@ window.addEvent ('domready', function () {
 		});
 	};
 	$$('#sort_randomly').addEvent ('click', function (e) {
-		if (e) e.preventDefault();
+		// if (e) e.preventDefault();
 		setActiveMenuItem (this);
 		sortRandomly ();
 	}).fireEvent('click');
@@ -70,7 +70,7 @@ window.addEvent ('domready', function () {
 		var container = $('thumbnails');
 
 		// Create a "name card" to denote where each new section begins
-		//Elements.from ('<div class="thumbnail category_card"><span>' + value + '</span></div>')[0].inject(container, 'top');
+		Elements.from ('<div class="thumbnail category_card"><span>' + value + '</span></div>')[0].inject(container, 'top');
 
 		// How show the ones we want...
 		$$('.thumbnail[' + attribute + '="' + value + '"]').setStyle ('display', 'inline-block');
@@ -129,13 +129,13 @@ window.addEvent ('domready', function () {
 	});
 	// Sort by...
 	$$('#sort_by_course').addEvent ('click', function (e) {
-		if (e) e.preventDefault();
+		// if (e) e.preventDefault();
 		setActiveMenuItem (this);
 		sortBy(courses);
 	});
 	// Filter by...
 	$$('[data-show-only-course]').addEvent ('click', function (e) {
-		if (e) e.preventDefault();
+		// if (e) e.preventDefault();
 		setActiveMenuItem (this);
 		showOnlyWhere ('data-course', this.get ('data-show-only-course'));
 	});
@@ -160,17 +160,26 @@ window.addEvent ('domready', function () {
 	});
 	// Sort by...
 	$$('#sort_by_medium').addEvent ('click', function (e) {
-		if (e) e.preventDefault();
+		// if (e) e.preventDefault();
 		setActiveMenuItem (this);
 		sortBy(mediums);
 	});
 	// Filter by...
 	$$('[data-show-only-medium]').addEvent ('click', function (e) {
-		if (e) e.preventDefault();
+		// if (e) e.preventDefault();
 		setActiveMenuItem (this);
 		showOnlyWhere ('data-medium', this.get ('data-show-only-medium'));
 	});
 
+	/*--------------------------------------------------------------------------
+	URL Functions
+	--------------------------------------------------------------------------*/
+	var parseURLForFilters = function () {
+		var url_cmd = window.location.toString().match(/#(medium|course)--(.*)$/);
+		$$('[data-show-only-' + url_cmd[1] + '="' + url_cmd[2] + '"]').fireEvent('click');
+		//showOnlyWhere ('data-' + url_cmd[1], url_cmd[2]);
+	};
+	parseURLForFilters();
 
 	/*--------------------------------------------------------------------------
 	LazyLoad
