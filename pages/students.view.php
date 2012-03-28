@@ -51,7 +51,7 @@
 
 	<section id="right" class="sidebar studentProfile">
 		<h1><?php echo $user->first_name . " " . $user->last_name ?></h1>
-  		<img class="photo" src="/images/student-image-profiles/<?php echo str_replace(' ', '_', $user->first_name) . "_" . str_replace(' ', '_', $user->last_name) ?>02.jpg">
+  		<img class="photo" src="/images/student-image-profiles/<?php echo ucfirst(strtolower(str_replace(' ', '_', $user->first_name))) . "_" . ucfirst(strtolower(str_replace(' ', '_', $user->last_name))) ?>02.jpg">
 
  		<h2>Contact</h2>
  		<p><a href="mailto:<?php echo $user->user_email ?>" "email me"><?php echo $user->user_email ?></a></p>
