@@ -4,7 +4,11 @@
 ?>
 <div id="page-wrapper" class="single-column">
 	<section id="content">
-		<div class="bright-box nocase product<?= time() > strtotime($catalogue_expiry_date) ? ' disabled' : '' ?>">
+		<?php
+			if (time() < strtotime($catalogue_expiry_date))
+			{
+		?>
+		<div class="bright-box nocase product">
 			<h1>Catalogue</h1>
 			<img src="/images/merch/catalogue.jpg" width="295" />
 			<p>
@@ -19,8 +23,13 @@
 				<p>(Expires April 1st at Midnight)</p>
 			</form>
 		</div>
+		<?php
+			}
 
-		<div class="bright-box nocase product<?= time() > strtotime($viewmaster_expiry_date) ? ' disabled' : '' ?>">
+			if (time() < strtotime($viewmaster_expiry_date))
+			{
+		?>
+		<div class="bright-box nocase product">
 			<h1>Viewmaster</h1>
 			<img src="/images/merch/viewmaster.png" width="295" />
 			<p>
@@ -34,6 +43,9 @@
 				<p>(Expires April 3rd at Midnight)</p>
 			</form>
 		</div>
+		<?php
+			}
+		?>
 
 		<div id="cart-button">
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
