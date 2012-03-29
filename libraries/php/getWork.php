@@ -133,6 +133,17 @@ function overlayProjectThumbs($i) {
 				$h = 550;
 			}
 
+			if (!empty($imgs['meta'][$index]['link'][0]) && preg_match('/[0-9]+\/?$/', $imgs['meta'][$index]['link'][0]))
+			{
+				$o .= '
+					<a href="#" class="video-link" data-video-url="'.$imgs['meta'][$index]['link'][0].'">
+						<span>
+							<img src="/images/overlay.video-thumbnail.png" />
+						</span>
+					</a>
+				';
+			}
+
 			$o .= '
 				<a href="/upload/files/'.$user->user_nicename.'/'.$largeImage['file'].'" class="olthumblink" data-enlarged-width="'.$w.'" data-enlarged-height="'.$h.'">
 					<span>

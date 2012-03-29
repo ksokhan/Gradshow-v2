@@ -78,11 +78,35 @@ window.addEvent ('domready', function () {
 		var _self = this;
 
 		// No clicking on already active thumbs
-		if (this.hasClass ('active')) return false;
+		if (_self.hasClass('active')) return false;
+
+		// Indicate which thumb is active
+		_self.addClass('active').getSiblings().removeClass('active');
 
 		// Transfer link properties to the enlarged image
 		var img = $$('#overlay-large-image img')[0];
-		img.fade(0).set('src', _self.get ('href'));
+
+		// Destroy any other iframes that might exist...
+		img.getSiblings('iframe').destroy();
+
+		// Is it a video thumbnail? Do different things...
+		if (_self.hasClass('video-link'))
+		{
+			// Hide the image
+			img.setStyle('display', 'none');
+
+			// Get the video ID
+			var video_id = _self.get('data-video-url').match(/([0-9]+)\/?$/)[0];
+
+			// Build a video frame and put it beside the image
+			Elements.from('<iframe src="http://player.vimeo.com/video/' + video_id + '?title=0&amp;byline=0&amp;portrait=0" width="600" height="335" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>')[0].inject(img, 'before');
+
+			// Don't do anything else...
+			return;
+		}
+
+		// Do image things
+		img.setStyle('display', '').fade(0).set('src', _self.get ('href'));
 		img.removeEvents().addEvent('load', function () {
 			img.set ({
 				'width': _self.get('data-enlarged-width'),
@@ -95,9 +119,6 @@ window.addEvent ('domready', function () {
 			// Re-center the window (some images are different sizes, which throws the window around)
 			$('overlay-window').position();
 		});
-
-		// Indicate which thumb is active
-		_self.addClass('active').getSiblings().removeClass('active');
 	};
 	var ms_before_not_a_click = 100;
 	Asset.javascript ('/js/classes/ModalWindow.js', {
@@ -120,6 +141,7 @@ window.addEvent ('domready', function () {
 								}
 							],
 							'onShow': function (window_element) {
+								$$('#overlay-thumbnails a.video-link').inject($('overlay-thumbnails'), 'top');
 								$$('#overlay-thumbnails a').addEvent('click', enlarge_thumbnail)[0].fireEvent('click');
 								$$('#overlay-large-image img').fireEvent ('load');
 							}

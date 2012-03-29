@@ -86,7 +86,7 @@
   display:inline-block;
   vertical-align:top;
 }
-#overlay-window .window-contents #overlay-left-column { max-width:550px; }
+#overlay-window .window-contents #overlay-left-column { max-width:595px; }
 #overlay-window .window-contents #overlay-left-column #overlay-large-image {
   margin-bottom:15px;
   text-align:center;
