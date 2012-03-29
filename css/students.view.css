@@ -117,6 +117,7 @@
   margin-right:10px;
   margin-bottom:10px;
 }
+#overlay-window .window-contents #overlay-thumbnails a:hover { background:none !important; }
 #overlay-window .window-contents #overlay-thumbnails a.active {
   border:2px solid;
   border-color:#f05123 !important;
