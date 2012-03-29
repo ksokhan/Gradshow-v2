@@ -3,3 +3,10 @@
   text-align:center;
 }
 .video iframe { margin:0 auto 0; }
+.video-swapper {
+  font-size:15px;
+  text-transform:uppercase;
+  font-weight:bold;
+  margin-right:10px;
+}
+.video-swapper.active { font-weight:bold; }
