@@ -129,8 +129,10 @@ window.addEvent ('domready', function () {
 				if (this.hasClass ('poster') && this.retrieve ('clickable', false) == false) return;
 
 				var trigger = this;
+				var time = new Date().getTime();
 				new Request.HTML ({
-					'url': trigger.get ('data-url'),
+					'url': trigger.get ('data-url') + '?' + time,
+					'noCache': true,
 					'onSuccess': function (responseTree, responseElements, responseHTML, responseJavaScript) {
 						new ModalWindow ({
 							'id': 'overlay-window',
