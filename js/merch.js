@@ -1,5 +1,5 @@
 window.addEvent('domready', function () {
-	$$('a.button').addEvent('click', function () {
+	$$('.product:not(.disabled) a.button').addEvent('click', function () {
 		this.getParent('form').submit();
 	});
 });

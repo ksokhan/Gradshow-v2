@@ -1,6 +1,10 @@
+<?php
+	$catalogue_expiry_date  = 'April 1, 11:59PM';
+	$viewmaster_expiry_date = 'April 3, 11:59PM';
+?>
 <div id="page-wrapper" class="single-column">
 	<section id="content">
-		<div class="bright-box nocase product">
+		<div class="bright-box nocase product<?= time() > strtotime($catalogue_expiry_date) ? ' disabled' : '' ?>">
 			<h1>Catalogue</h1>
 			<img src="/images/merch/catalogue.jpg" width="295" />
 			<p>
@@ -12,10 +16,11 @@
 				<input type="hidden" name="hosted_button_id" value="7CTFF8CKAUHUC">
 				<a href="#" class="button">$20 &mdash; Add to Cart</a>
 				<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				<p>(Expires April 1st at Midnight)</p>
 			</form>
 		</div>
 
-		<div class="bright-box nocase product">
+		<div class="bright-box nocase product<?= time() > strtotime($viewmaster_expiry_date) ? ' disabled' : '' ?>">
 			<h1>Viewmaster</h1>
 			<img src="/images/merch/viewmaster.png" width="295" />
 			<p>
@@ -26,6 +31,7 @@
 				<input type="hidden" name="hosted_button_id" value="VNTXCZP789FZ2">
 				<a href="#" class="button">$15 &mdash; Add to Cart</a>
 				<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				<p>(Expires April 3rd at Midnight)</p>
 			</form>
 		</div>
 

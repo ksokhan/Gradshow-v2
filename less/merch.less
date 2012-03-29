@@ -1,4 +1,7 @@
 @import '_colours.less';
+#content {
+	text-align: center;
+}
 .product {
 	display: inline-block;
 	width: 335px;
@@ -9,7 +12,15 @@
 	&:first-child {
 		margin-right: 20px;
 	}
+	&.disabled {
+		display: none;
+		opacity: 0.5;
 
+		a.button {
+			cursor: default !important;
+			background: #999 !important;
+		}
+	}
 	h1 {
 		font-size: 13px;
 		text-transform: uppercase !important;
@@ -19,6 +30,9 @@
 		text-align: left !important;
 		text-transform: none;
 		margin: 20px 0;
+	}
+	form p {
+		text-align: center !important;
 	}
 }
 a.button {
