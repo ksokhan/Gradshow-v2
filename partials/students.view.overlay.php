@@ -14,7 +14,7 @@
 		<?php echo $imgs['data'][$img]['post_title'] ?>
 	</h1>
 	<h2>
-		<?php echo $imgs['meta'][$img]['medium']['0'] ?>
+		<?php echo $imgs['meta'][$img]['category']['0'] ?>
 	</h2>
 	<h2>
 		<?php echo $user->first_name . " " . $user->last_name ?>
