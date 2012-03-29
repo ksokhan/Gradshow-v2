@@ -12,4 +12,4 @@ a:4:{s:4:"root";s:19:"./less/gallery.less";s:8:"compiled";s:388:"#thumbnails.gal
   overflow:hidden;
 }
 #thumbnails.gallery .thumbnail a:hover { background:transparent !important; }
-";s:5:"files";a:1:{s:40:"/home/hosted/pique2012/less/gallery.less";i:1332892208;}s:7:"updated";i:1332983631;}
+";s:5:"files";a:1:{s:40:"/home/hosted/pique2012/less/gallery.less";i:1332892208;}s:7:"updated";i:1332985091;}
