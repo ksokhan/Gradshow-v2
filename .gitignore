@@ -3,3 +3,4 @@ github.php
 css/*
 invite/
 less/*.cache
+.fseventsd/*
