@@ -61,7 +61,7 @@
 
 	<!-- DESCRIPTION -->
 	<div id="overlay-description" class="nocase">
-		<?php echo $imgs['data'][$img]['post_content'] ?>
+		<?php echo nl2br($imgs['data'][$img]['post_content']) ?>
 	</div>
 
 	<!-- STUDENT WORK LINK LIST -->
