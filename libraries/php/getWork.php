@@ -113,6 +113,7 @@ function overlayProjectThumbs($i) {
 
 	$user = get_userdata( $id );
 	$project = $imgs['meta'][$i]['project'][0];
+	$thumbs = array ();
 
 	foreach ( $imgs['data'] as $index => $value)
 	{
@@ -133,9 +134,10 @@ function overlayProjectThumbs($i) {
 				$h = 550;
 			}
 
+			$thumb_html	= '';
 			if (!empty($imgs['meta'][$index]['link'][0]) && preg_match('/[0-9]+\/?$/', $imgs['meta'][$index]['link'][0]))
 			{
-				$o .= '
+				$thumb_html .= '
 					<a href="#" class="video-link" data-video-url="'.$imgs['meta'][$index]['link'][0].'">
 						<span>
 							<img src="/images/overlay.video-thumbnail.png" />
@@ -144,16 +146,18 @@ function overlayProjectThumbs($i) {
 				';
 			}
 
-			$o .= '
-				<a href="/upload/files/'.$user->user_nicename.'/'.$largeImage['file'].'" class="olthumblink" data-enlarged-width="'.$w.'" data-enlarged-height="'.$h.'">
+			$thumb_html .= '
+				<a href="/upload/files/'.$user->user_nicename.'/'.$largeImage['file'].'" class="olthumblink" data-enlarged-width="'.$w.'" data-enlarged-height="'.$h.'" data-featured="'.$imgs['meta'][$index]['featured'][0].'" data-position="'.$imgs['meta'][$index]['supporting'][0].'">
 					<span>
 						<img class="olthumbnail" style="width: '.$img_med['width'].'; height: '.$img_med['height'].'" src="/upload/files/'.$user->user_nicename.'/'.$img_med['file'].'" />
 					</span>
 				</a>
 			';
+
+			$thumbs[] = $thumb_html;
 		}
 	}
-	return $o;
+	return implode ('', $thumbs);
 }
 
 // this echos out the whole thing:

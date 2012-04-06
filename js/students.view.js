@@ -143,8 +143,31 @@ window.addEvent ('domready', function () {
 								}
 							],
 							'onShow': function (window_element) {
-								$$('#overlay-thumbnails a.video-link').inject($('overlay-thumbnails'), 'top');
-								$$('#overlay-thumbnails a').addEvent('click', enlarge_thumbnail)[0].fireEvent('click');
+								var thumb_container = $('overlay-thumbnails');
+								var thumb_links = thumb_container.getElements('a');
+
+								// Video links go first
+								//thumb_links.filter('.video-link').inject(thumb_container, 'top');
+
+								// Sort by data-position
+								thumb_links.sort (function (a, b) {
+									var a = a.get('data-position').toInt(),
+									    b = b.get('data-position').toInt();
+
+									if (a == b) return 0;
+									return a < b ? -1 : 1;
+								});
+								thumb_links.each (function (element) {
+									element.inject(thumb_container, 'bottom');
+								});
+
+								// Now put the "featured" image first, no matter what
+								thumb_links.filter('[data-featured="yes"]').inject (thumb_container, 'top');
+
+								// Clicking makes them bigger
+								thumb_links.addEvent('click', enlarge_thumbnail).filter('[data-featured="yes"]').fireEvent('click');
+
+								// Show the main image
 								$$('#overlay-large-image img').fireEvent ('load');
 							}
 						});
