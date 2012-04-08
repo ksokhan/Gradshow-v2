@@ -138,7 +138,7 @@ function overlayProjectThumbs($i) {
 			if (!empty($imgs['meta'][$index]['link'][0]) && preg_match('/[0-9]+\/?$/', $imgs['meta'][$index]['link'][0]))
 			{
 				$thumb_html .= '
-					<a href="#" class="video-link" data-video-url="'.$imgs['meta'][$index]['link'][0].'">
+					<a href="#" class="video-link" data-video-url="'.$imgs['meta'][$index]['link'][0].'" data-position="'.$imgs['meta'][$index]['supporting'][0].'">
 						<span>
 							<img src="/images/overlay.video-thumbnail.png" />
 						</span>
