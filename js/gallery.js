@@ -1,12 +1,8 @@
 window.addEvent ('domready', function () {
-	var loadVisible = function () {
-		$$('.thumbnail').each (function (element, index) {
-			if (element.getStyle ('display') == 'inline-block') {
-				element.getElements('img').each (function (image, index) {
-					image.set('src', image.get('data-src')).fade(1);
-				});
-			}
-		});
+	var lazyloader;
+	var refreshLazyLoader = function () {
+		if (lazyloader) lazyloader.initialize();
+		return;
 	};
 
 	/*--------------------------------------------------------------------------
@@ -35,6 +31,9 @@ window.addEvent ('domready', function () {
 		thumbnails.each (function (thumbnail, index) {
 			thumbnail.setStyle('display', 'inline-block').inject(container);
 		});
+
+		// My own lazyLoad
+		refreshLazyLoader();
 	};
 	$$('#sort_randomly').addEvent ('click', function (e) {
 		// if (e) e.preventDefault();
@@ -76,7 +75,7 @@ window.addEvent ('domready', function () {
 		$$('.thumbnail[' + attribute + '="' + value + '"]').setStyle ('display', 'inline-block');
 
 		// My own lazyLoad
-		loadVisible();
+		refreshLazyLoader();
 	};
 
 	/*--------------------------------------------------------------------------
@@ -106,7 +105,7 @@ window.addEvent ('domready', function () {
 		});
 
 		// My own lazyLoad
-		loadVisible();
+		refreshLazyLoader();
 	};
 
 	/*--------------------------------------------------------------------------
@@ -185,5 +184,5 @@ window.addEvent ('domready', function () {
 	/*--------------------------------------------------------------------------
 	LazyLoad
 	--------------------------------------------------------------------------*/
-	var lazyloader = new LazyLoad();
+	lazyloader = new LazyLoad();
 });

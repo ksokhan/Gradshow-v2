@@ -69,7 +69,7 @@ function drawAllImages() {
 			$course = trim( str_replace($course_replace, '', $imgs['meta'][$index]['course'][0]) , '-');
 
 			$o .= '
-				<div class="thumbnail" data-course="'. $course .'" data-medium="'. $imgs['meta'][$index]['category'][0] .'" title="' . $imgs['data'][$index]['post_title'] . '&lt;br&gt;' . $imgs['author'][$index]->first_name . ' ' . $imgs['author'][$index]->last_name . '">
+				<div class="thumbnail" data-course="'. $course .'" data-medium="'. $imgs['meta'][$index]['category'][0] .'" title="' . str_replace('"', '&quot;', $imgs['data'][$index]['post_title']) . '&lt;br&gt;' . $imgs['author'][$index]->first_name . ' ' . $imgs['author'][$index]->last_name . '">
 					<a href="/students/view/options/action/overlay/id/' . $imgs['author'][$index]->ID . '/image/' . $imgs['data'][$index]['ID'] . '"><img data-src="/upload/files/' . $imgs['author'][$index]->user_nicename . '/' . $img_thumb['file'] . '"></a>
 				</div>
 			';
@@ -113,6 +113,7 @@ function overlayProjectThumbs($i) {
 
 	$user = get_userdata( $id );
 	$project = $imgs['meta'][$i]['project'][0];
+	$thumbs = array ();
 
 	foreach ( $imgs['data'] as $index => $value)
 	{
@@ -133,16 +134,30 @@ function overlayProjectThumbs($i) {
 				$h = 550;
 			}
 
-			$o .= '
-				<a href="/upload/files/'.$user->user_nicename.'/'.$largeImage['file'].'" class="olthumblink" data-enlarged-width="'.$w.'" data-enlarged-height="'.$h.'">
+			$thumb_html	= '';
+			if (!empty($imgs['meta'][$index]['link'][0]) && preg_match('/[0-9]+\/?$/', $imgs['meta'][$index]['link'][0]))
+			{
+				$thumb_html .= '
+					<a href="#" class="video-link" data-video-url="'.$imgs['meta'][$index]['link'][0].'" data-position="'.$imgs['meta'][$index]['supporting'][0].'">
+						<span>
+							<img src="/images/overlay.video-thumbnail.png" />
+						</span>
+					</a>
+				';
+			}
+
+			$thumb_html .= '
+				<a href="/upload/files/'.$user->user_nicename.'/'.$largeImage['file'].'" class="olthumblink" data-enlarged-width="'.$w.'" data-enlarged-height="'.$h.'" data-featured="'.$imgs['meta'][$index]['featured'][0].'" data-position="'.$imgs['meta'][$index]['supporting'][0].'">
 					<span>
 						<img class="olthumbnail" style="width: '.$img_med['width'].'; height: '.$img_med['height'].'" src="/upload/files/'.$user->user_nicename.'/'.$img_med['file'].'" />
 					</span>
 				</a>
 			';
+
+			$thumbs[] = $thumb_html;
 		}
 	}
-	return $o;
+	return implode ('', $thumbs);
 }
 
 // this echos out the whole thing:

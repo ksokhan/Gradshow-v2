@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:19:"./less/gallery.less";s:8:"compiled";s:388:"#thumbnails.gallery .thumbnail {
+a:4:{s:4:"root";s:19:"./less/gallery.less";s:8:"compiled";s:475:"#thumbnails.gallery .thumbnail {
   border:solid 2px transparent;
   width:150px;
   height:150px;
@@ -12,4 +12,9 @@ a:4:{s:4:"root";s:19:"./less/gallery.less";s:8:"compiled";s:388:"#thumbnails.gal
   overflow:hidden;
 }
 #thumbnails.gallery .thumbnail a:hover { background:transparent !important; }
-";s:5:"files";a:1:{s:41:"/home/ksokhan/pique-dev/less/gallery.less";i:1332702843;}s:7:"updated";i:1332702846;}
+#thumbnails.gallery .thumbnail a img {
+  position:relative;
+  top:-8px;
+  left:-8px;
+}
+";s:5:"files";a:1:{s:41:"/home/ksokhan/pique-dev/less/gallery.less";i:1333073189;}s:7:"updated";i:1333073190;}

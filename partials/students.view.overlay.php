@@ -14,7 +14,7 @@
 		<?php echo $imgs['data'][$img]['post_title'] ?>
 	</h1>
 	<h2>
-		<?php echo $imgs['meta'][$img]['medium']['0'] ?>
+		<?php echo $imgs['meta'][$img]['category']['0'] ?>
 	</h2>
 	<h2>
 		<?php echo $user->first_name . " " . $user->last_name ?>
@@ -61,7 +61,7 @@
 
 	<!-- DESCRIPTION -->
 	<div id="overlay-description" class="nocase">
-		<?php echo $imgs['data'][$img]['post_content'] ?>
+		<?php echo nl2br($imgs['data'][$img]['post_content']) ?>
 	</div>
 
 	<!-- STUDENT WORK LINK LIST -->

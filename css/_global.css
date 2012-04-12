@@ -5,7 +5,7 @@ body#white a.active-menu-item {
   color:#f05123;
   border-bottom-color:#f05123;
 }
-body#white #main-navigation .current_page a {
+body#white #main-navigation .current_page a, body#white .video-swapper.active {
   color:#f05123;
   border-bottom-color:#f05123;
 }
@@ -16,6 +16,7 @@ body#white #logo a { background:url(../images/wordmark.red.png); }
 body#white .thumbnail {
   border-color:#3c3a89;
   color:#3c3a89;
+  background-image:url(/images/loading.red-on-white.gif);
 }
 body#white .category_card {
   background:#f05123;
@@ -47,7 +48,7 @@ body#yellow a.active-menu-item {
   color:#3c3a89;
   border-bottom-color:#3c3a89;
 }
-body#yellow #main-navigation .current_page a {
+body#yellow #main-navigation .current_page a, body#yellow .video-swapper.active {
   color:#3c3a89;
   border-bottom-color:#3c3a89;
 }
@@ -56,6 +57,7 @@ body#yellow #logo a { background:url(../images/wordmark.navy.png); }
 body#yellow .thumbnail {
   border-color:#3c3a89;
   color:#f05123;
+  background-image:url(/images/loading.red-on-yellow.gif);
 }
 body#yellow .category_card {
   background:#f05123;
@@ -88,7 +90,7 @@ body#seafoam a.active-menu-item {
   color:#f05123;
   border-bottom-color:#f05123;
 }
-body#seafoam #main-navigation .current_page a {
+body#seafoam #main-navigation .current_page a, body#seafoam .video-swapper.active {
   color:#f05123;
   border-bottom-color:#f05123;
 }
@@ -97,6 +99,7 @@ body#seafoam #logo a { background:url(../images/wordmark.red.png); }
 body#seafoam .thumbnail {
   border-color:#f05123;
   color:#3c3a89;
+  background-image:url(/images/loading.red-on-seafoam.gif);
 }
 body#seafoam .category_card {
   background:#f05123;
@@ -129,7 +132,7 @@ body#red a.active-menu-item {
   color:#cbe8db;
   border-bottom-color:#cbe8db;
 }
-body#red #main-navigation .current_page a {
+body#red #main-navigation .current_page a, body#red .video-swapper.active {
   color:#cbe8db;
   border-bottom-color:#cbe8db;
 }
@@ -138,6 +141,7 @@ body#red #logo a { background:url(../images/wordmark.seafoam.png); }
 body#red .thumbnail {
   border-color:#cbe8db;
   color:#ffe850;
+  background-image:url(/images/loading.yellow-on-red.gif);
 }
 body#red .category_card {
   background:#ffe850;
@@ -170,7 +174,7 @@ body#navy a.active-menu-item {
   color:#ffe850;
   border-bottom-color:#ffe850;
 }
-body#navy #main-navigation .current_page a {
+body#navy #main-navigation .current_page a, body#navy .video-swapper.active {
   color:#ffe850;
   border-bottom-color:#ffe850;
 }
@@ -179,6 +183,7 @@ body#navy #logo a { background:url(../images/wordmark.yellow.png); }
 body#navy .thumbnail {
   border-color:#ffe850;
   color:#cbe8db;
+  background-image:url(/images/loading.yellow-on-navy.gif);
 }
 body#navy .category_card {
   background:#ffe850;
@@ -399,6 +404,8 @@ header .timer var { font-style:normal; }
   height:135px;
   border:1px solid;
   position:relative;
+  background-position:center center;
+  background-repeat:no-repeat;
 }
 #thumbnails .thumbnail.category_card span {
   position:absolute;

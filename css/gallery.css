@@ -12,3 +12,8 @@
   overflow:hidden;
 }
 #thumbnails.gallery .thumbnail a:hover { background:transparent !important; }
+#thumbnails.gallery .thumbnail a img {
+  position:relative;
+  top:-8px;
+  left:-8px;
+}

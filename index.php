@@ -41,6 +41,9 @@
 		<meta charset="UTF-8">
 
 		<title>PIQUE</title>
+
+		<link rel="icon" href="/favicon.ico">
+
 		<?php
 			auto_compile_less('./less/_global.less', './css/_global.css');
 		?>
