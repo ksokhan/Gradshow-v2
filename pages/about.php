@@ -29,6 +29,7 @@
 					55 Mill Street, Building no. 6 &ndash; 7<br>
 					Toronto, ON M5A 3C4
 				</p>
+				<p><a class="underlined" href="http://www.thedistillerydistrict.com/visit.php">Fermenting Cellar Map and Directions</a></p>
 			</div>
 		</div>
 
@@ -83,7 +84,7 @@
 			</div>
 		</div>
 
-		<div class="sp" style=" width: 420px; height: 330px; background: #fff url(/images/sponsors.png) center center no-repeat;">
+		<div class="sp" style=" width: 420px; height: 400px; background: #fff url(/images/sponsors.png) center center no-repeat;">
 		</div>
 	</section>
 </div>
