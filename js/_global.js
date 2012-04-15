@@ -11,6 +11,10 @@ window.addEvent ('domready', function () {
 	(function () {
 		var now = Date.parse('04/15/2012 6:30pm');
 		var timeDiff = now.timeDiff ().match (/(([0-9]+)d:)?(([0-9]+)h:)?(([0-9]+)m:)?(([0-9]+)s)?/);
+		timeDiff[2] = timeDiff[2] || '00';
+		timeDiff[4] = timeDiff[4] || '00';
+		timeDiff[6] = timeDiff[6] || '00';
+		timeDiff[8] = timeDiff[8] || '00';
 		time_pieces.days.set ('text', ('0' + timeDiff[2].toInt()).slice (-2));
 		time_pieces.hours.set ('text', ('0' + timeDiff[4].toInt()).slice (-2));
 		time_pieces.minutes.set ('text', ('0' + timeDiff[6].toInt()).slice (-2));
